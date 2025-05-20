@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Medication, Diagnosis, Prescription, LabTest
-from .serializers import MedicationSerializer, DiagnosisSerializer, PrescriptionSerializer, LabTestSerializer
+from .models import Medication, Diagnosis, Prescription, LabTest, Reminder
+from .serializers import MedicationSerializer, DiagnosisSerializer, PrescriptionSerializer, LabTestSerializer, ReminderSerializer
 from rest_framework import serializers, viewsets, status
 from rest_framework.response import Response
 
@@ -80,3 +80,7 @@ class SaveExamViewSet(viewsets.ViewSet):
             'prescription_ids': [p.id for p in pres_objs],
             'labtest_ids': [l.id for l in lab_objs]
         }, status=status.HTTP_201_CREATED)
+
+class ReminderViewSet(viewsets.ModelViewSet):
+    queryset = Reminder.objects.all().order_by('-remind_time')
+    serializer_class = ReminderSerializer

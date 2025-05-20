@@ -169,6 +169,90 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "Create Reminder",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": 1,\n  \"patient_record\": 1,\n  \"prescription\": 1,\n  \"medication\": 1,\n  \"message\": \"Nhắc uống thuốc Paracetamol\",\n  \"remind_time\": \"2025-05-21T08:00:00Z\",\n  \"type\": \"medication\",\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8003/api/reminders/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "reminders", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Reminders by Patient",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8003/api/reminders/?patient_id={{patient_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "reminders", ""],
+          "query": [
+            { "key": "patient_id", "value": "{{patient_id}}" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Medication Reminder (Auto from Prescription)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": 1,\n  \"patient_record\": 1,\n  \"prescription\": 1,\n  \"medication\": 1,\n  \"message\": \"Nhắc uống thuốc Paracetamol: 2 viên/ngày\",\n  \"remind_time\": \"2025-05-21T08:00:00Z\",\n  \"type\": \"medication\",\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8003/api/reminders/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "reminders", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Medication Reminders by Prescription",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8003/api/reminders/?prescription={{prescription_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "reminders", ""],
+          "query": [
+            { "key": "prescription", "value": "{{prescription_id}}" }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }

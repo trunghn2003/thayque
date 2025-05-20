@@ -36,6 +36,25 @@ class Prescription(models.Model):
     def __str__(self):
         return f"{self.medication.name} ({self.dosage}) for {self.diagnosis.name}"
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        # Tự động tạo nhắc nhở uống thuốc khi tạo mới Prescription
+        if self.pk and self.medication and self.patient_record and self.appointment:
+            from .models import Reminder
+            # Kiểm tra đã có reminder cho prescription này chưa
+            if not Reminder.objects.filter(prescription=self).exists():
+                Reminder.objects.create(
+                    patient_id=None,  # Có thể lấy từ patient_record nếu cần mapping
+                    patient_record=self.patient_record,
+                    appointment=self.appointment,
+                    prescription=self,
+                    medication=self.medication,
+                    message=f"Nhắc uống thuốc {self.medication.name}: {self.dosage}",
+                    remind_time=None,  # Có thể tính toán từ instructions hoặc truyền vào
+                    type="medication",
+                    quantity=None  # Có thể parse từ dosage nếu cần
+                )
+
 class LabTest(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
@@ -48,3 +67,20 @@ class LabTest(models.Model):
 
     def __str__(self):
         return self.name
+
+class Reminder(models.Model):
+    patient_id = models.IntegerField()
+    patient_record = models.IntegerField(null=True, blank=True)
+    appointment = models.IntegerField(null=True, blank=True)
+    prescription = models.ForeignKey('Prescription', null=True, blank=True, on_delete=models.SET_NULL)
+    medication = models.ForeignKey('Medication', null=True, blank=True, on_delete=models.SET_NULL)
+    message = models.CharField(max_length=255)
+    remind_time = models.DateTimeField()
+    type = models.CharField(max_length=50, default="general")  # 'medication', 'appointment', ...
+    quantity = models.PositiveIntegerField(null=True, blank=True)
+    is_sent = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"Reminder for patient {self.patient_id} at {self.remind_time}"
