@@ -1,0 +1,70 @@
+{
+  "info": {
+    "_postman_id": "appointment-service-collection",
+    "name": "Appointment Service API Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Appointment",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"patient_id\": 1,\n  \"doctor_id\": 2,\n  \"appointment_time\": \"2025-05-21T09:00:00Z\",\n  \"reason\": \"Kham dinh ky\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/api/appointments/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["api", "appointments", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Appointments",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8001/api/appointments/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["api", "appointments", ""]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Doctor Schedule",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"doctor_id\": 2,\n  \"start_time\": \"2025-05-21T08:00:00Z\",\n  \"end_time\": \"2025-05-21T12:00:00Z\",\n  \"is_available\": true\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8001/api/doctor-schedules/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8001",
+          "path": ["api", "doctor-schedules", ""]
+        }
+      },
+      "response": []
+    }
+  ]
+}
