@@ -38,12 +38,14 @@ class Appointment(models.Model):
     patient_id = models.IntegerField(
         _("patient id"),
         db_index=True,
-        help_text=_("ID of the Patient from the User Service")
+        help_text=_("ID of the Patient from the User Service"),
+        null=True, blank=True,  # Cho phép null để tránh lỗi khi migrate
     )
     doctor_id = models.IntegerField(
         _("doctor id"),
         db_index=True,
-        help_text=_("ID of the Doctor from the User Service")
+        help_text=_("ID of the Doctor from the User Service"),
+        null=True, blank=True,  # Cho phép null để tránh lỗi khi migrate
     )
     schedule_slot = models.ForeignKey(
         DoctorSchedule,
