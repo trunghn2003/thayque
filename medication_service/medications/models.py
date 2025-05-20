@@ -15,6 +15,8 @@ class Medication(models.Model):
 class Diagnosis(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
+    appointment = models.IntegerField(null=True, blank=True, help_text="ID of Appointment from appointment_service")
+    patient_record = models.IntegerField(null=True, blank=True, help_text="ID of PatientRecord from patient_service")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -26,6 +28,8 @@ class Prescription(models.Model):
     medication = models.ForeignKey(Medication, related_name='prescriptions', on_delete=models.CASCADE)
     dosage = models.CharField(max_length=100)
     instructions = models.TextField(blank=True)
+    appointment = models.IntegerField(null=True, blank=True, help_text="ID of Appointment from appointment_service")
+    patient_record = models.IntegerField(null=True, blank=True, help_text="ID of PatientRecord from patient_service")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -37,6 +41,8 @@ class LabTest(models.Model):
     description = models.TextField(blank=True)
     requirements = models.TextField(blank=True)
     diagnosis = models.ForeignKey(Diagnosis, related_name='lab_tests', on_delete=models.CASCADE, null=True, blank=True)
+    appointment = models.IntegerField(null=True, blank=True, help_text="ID of Appointment from appointment_service")
+    patient_record = models.IntegerField(null=True, blank=True, help_text="ID of PatientRecord from patient_service")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 

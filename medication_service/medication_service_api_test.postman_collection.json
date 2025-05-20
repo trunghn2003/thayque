@@ -109,6 +109,66 @@
         }
       },
       "response": []
+    },
+    {
+      "name": "List Diagnoses by Patient Record",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8003/api/diagnoses/?patient_record={{patient_record_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "diagnoses", ""],
+          "query": [
+            { "key": "patient_record", "value": "{{patient_record_id}}" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List Prescriptions by Patient Record",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8003/api/prescriptions/?patient_record={{patient_record_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "prescriptions", ""],
+          "query": [
+            { "key": "patient_record", "value": "{{patient_record_id}}" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List LabTests by Patient Record",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{user_token}}" }
+        ],
+        "url": {
+          "raw": "http://localhost:8003/api/lab-tests/?patient_record={{patient_record_id}}",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8003",
+          "path": ["api", "lab-tests", ""],
+          "query": [
+            { "key": "patient_record", "value": "{{patient_record_id}}" }
+          ]
+        }
+      },
+      "response": []
     }
   ]
 }
