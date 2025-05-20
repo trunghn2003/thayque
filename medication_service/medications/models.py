@@ -1,4 +1,5 @@
 from django.db import models
+from datetime import datetime, timedelta, time
 
 # Create your models here.
 class Medication(models.Model):
@@ -37,22 +38,38 @@ class Prescription(models.Model):
         return f"{self.medication.name} ({self.dosage}) for {self.diagnosis.name}"
 
     def save(self, *args, **kwargs):
+        is_new = self.pk is None
         super().save(*args, **kwargs)
         # Tự động tạo nhắc nhở uống thuốc khi tạo mới Prescription
-        if self.pk and self.medication and self.patient_record and self.appointment:
+        if is_new and self.medication and self.patient_record and self.appointment:
             from .models import Reminder
-            # Kiểm tra đã có reminder cho prescription này chưa
-            if not Reminder.objects.filter(prescription=self).exists():
+            # Ví dụ: parse dosage/instructions để xác định các mốc giờ uống thuốc
+            # Ở đây giả sử nếu 'sáng' trong instructions thì 7:00, 'tối' thì 19:00
+            times = []
+            instr = (self.instructions or '').lower() + ' ' + (self.dosage or '').lower()
+            if 'sáng' in instr:
+                times.append(time(7, 0))
+            if 'trưa' in instr:
+                times.append(time(12, 0))
+            if 'chiều' in instr:
+                times.append(time(17, 0))
+            if 'tối' in instr:
+                times.append(time(19, 0))
+            if not times:
+                times = [time(7, 0)]  # Mặc định 1 lần buổi sáng nếu không rõ
+            today = datetime.now().date()
+            for t in times:
+                remind_dt = datetime.combine(today, t)
                 Reminder.objects.create(
-                    patient_id=None,  # Có thể lấy từ patient_record nếu cần mapping
+                    patient_id=None,
                     patient_record=self.patient_record,
                     appointment=self.appointment,
                     prescription=self,
                     medication=self.medication,
                     message=f"Nhắc uống thuốc {self.medication.name}: {self.dosage}",
-                    remind_time=None,  # Có thể tính toán từ instructions hoặc truyền vào
+                    remind_time=remind_dt,
                     type="medication",
-                    quantity=None  # Có thể parse từ dosage nếu cần
+                    quantity=None
                 )
 
 class LabTest(models.Model):
@@ -84,3 +101,24 @@ class Reminder(models.Model):
 
     def __str__(self):
         return f"Reminder for patient {self.patient_id} at {self.remind_time}"
+
+class Appointment(models.Model):
+    # ...existing fields...
+    def save(self, *args, **kwargs):
+        is_new = self.pk is None
+        super().save(*args, **kwargs)
+        # Tự động tạo nhắc nhở tái khám trước 3 ngày
+        if is_new and self.patient_id and self.doctor_id and self.appointment_time:
+            from medications.models import Reminder
+            remind_dt = self.appointment_time - timedelta(days=3)
+            Reminder.objects.create(
+                patient_id=self.patient_id,
+                patient_record=None,
+                appointment=self.id,
+                prescription=None,
+                medication=None,
+                message="Nhắc lịch tái khám trong 3 ngày tới!",
+                remind_time=remind_dt,
+                type="appointment",
+                quantity=None
+            )
