@@ -32,7 +32,6 @@ class AppointmentViewSet(viewsets.ModelViewSet):
 
     def perform_create(self, serializer):
         print("=== perform_create called ===")
-        # Lấy token từ request
         auth_header = self.request.headers.get('Authorization', '')
         print(f"auth_header: {auth_header}")
         if not auth_header.startswith('Bearer '):
@@ -43,7 +42,15 @@ class AppointmentViewSet(viewsets.ModelViewSet):
         user_id = user_info.get('id') or user_info.get('user_id')
         if not user_id:
             raise AuthenticationFailed('Không lấy được user_id từ user_service.')
-        serializer.save(patient_id=user_id)
+        # Lấy doctor_id, appointment_time từ DoctorSchedule
+        schedule_slot = serializer.validated_data.get('schedule_slot')
+        if not schedule_slot:
+            raise AuthenticationFailed('Phải chọn schedule_slot (id lịch làm việc bác sĩ)!')
+        serializer.save(
+            patient_id=user_id,
+            doctor_id=schedule_slot.doctor_id,
+            appointment_time=schedule_slot.start_time
+        )
 
 class DoctorScheduleViewSet(viewsets.ModelViewSet):
     queryset = DoctorSchedule.objects.all().order_by('doctor_id', 'start_time')

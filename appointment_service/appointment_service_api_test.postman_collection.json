@@ -15,7 +15,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"doctor_id\": 2,\n  \"appointment_time\": \"2025-05-21T09:00:00Z\",\n  \"reason\": \"Kham dinh ky\"\n}"
+          "raw": "{\n  \"schedule_slot\": 1,\n  \"reason\": \"Kham dinh ky\"\n}"
         },
         "url": {
           "raw": "http://localhost:8001/api/appointments/",

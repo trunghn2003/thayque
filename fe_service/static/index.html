@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đặt lịch khám bệnh - Frontend Service</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .section { margin-bottom: 32px; }
+        label { display: block; margin-top: 8px; }
+        input, select, button, textarea { margin-top: 4px; margin-bottom: 12px; }
+        .hidden { display: none; }
+        .error { color: red; }
+        .success { color: green; }
+        table { border-collapse: collapse; width: 100%; margin-top: 12px; }
+        th, td { border: 1px solid #ccc; padding: 6px 10px; }
+        th { background: #f0f0f0; }
+    </style>
+</head>
+<body>
+    <h1>Đặt lịch khám bệnh (Frontend Service)</h1>
+    <div class="section" id="login-section">
+        <h2>Đăng nhập</h2>
+        <label>Tên đăng nhập: <input type="text" id="username"></label>
+        <label>Mật khẩu: <input type="password" id="password"></label>
+        <button onclick="login()">Đăng nhập</button>
+        <span id="login-error" class="error"></span>
+    </div>
+    <div class="section hidden" id="main-section">
+        <button onclick="logout()">Đăng xuất</button>
+        <h2>Lịch làm việc của bác sĩ</h2>
+        <button onclick="loadSchedules()">Tải lại lịch</button>
+        <table id="schedule-table">
+            <thead>
+                <tr><th>ID</th><th>Bác sĩ</th><th>Bắt đầu</th><th>Kết thúc</th><th>Chọn</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <h2>Đặt lịch hẹn</h2>
+        <form onsubmit="return createAppointment()">
+            <label>Lịch làm việc:
+                <select id="schedule-select"></select>
+            </label>
+            <label>Lý do khám:
+                <textarea id="reason" rows="2" cols="40"></textarea>
+            </label>
+            <button type="submit">Đặt lịch</button>
+            <span id="appt-success" class="success"></span>
+            <span id="appt-error" class="error"></span>
+        </form>
+        <h2>Lịch hẹn của bạn</h2>
+        <button onclick="loadAppointments()">Tải lại lịch hẹn</button>
+        <table id="appt-table">
+            <thead>
+                <tr><th>ID</th><th>Bác sĩ</th><th>Thời gian</th><th>Lý do</th><th>Trạng thái</th></tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+<script>
+const API_BASE = '/api'; // proxy qua Flask backend
+
+function show(id) { document.getElementById(id).classList.remove('hidden'); }
+function hide(id) { document.getElementById(id).classList.add('hidden'); }
+function setText(id, text) { document.getElementById(id).textContent = text; }
+
+function login() {
+    setText('login-error', '');
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+    fetch(`${API_BASE}/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+    })
+    .then(r => r.json().then(data => ({status: r.status, data})))
+    .then(({status, data}) => {
+        if (status === 200 && data.access) {
+            localStorage.setItem('token', data.access);
+            hide('login-section');
+            show('main-section');
+            loadSchedules();
+            loadAppointments();
+        } else {
+            setText('login-error', data.detail || 'Đăng nhập thất bại');
+        }
+    })
+    .catch(() => setText('login-error', 'Lỗi kết nối user_service.'));
+}
+function logout() {
+    localStorage.removeItem('token');
+    show('login-section');
+    hide('main-section');
+}
+function getToken() { return localStorage.getItem('token'); }
+function authHeader() {
+    const t = getToken();
+    return t ? { 'Authorization': 'Bearer ' + t } : {};
+}
+function loadSchedules() {
+    fetch(`${API_BASE}/doctor-schedules`, { headers: authHeader() })
+    .then(r => r.json())
+    .then(data => {
+        const tbody = document.querySelector('#schedule-table tbody');
+        const select = document.getElementById('schedule-select');
+        tbody.innerHTML = '';
+        select.innerHTML = '';
+        data.forEach(s => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${s.id}</td><td>${s.doctor_id}</td><td>${s.start_time.replace('T',' ').slice(0,16)}</td><td>${s.end_time.replace('T',' ').slice(0,16)}</td><td><button onclick='selectSchedule(${s.id})'>Chọn</button></td>`;
+            tbody.appendChild(tr);
+            const opt = document.createElement('option');
+            opt.value = s.id; opt.text = `#${s.id} - BS ${s.doctor_id} (${s.start_time.replace('T',' ').slice(0,16)})`;
+            select.appendChild(opt);
+        });
+    });
+}
+function selectSchedule(id) {
+    document.getElementById('schedule-select').value = id;
+}
+function createAppointment() {
+    setText('appt-success', '');
+    setText('appt-error', '');
+    const schedule_slot = document.getElementById('schedule-select').value;
+    const reason = document.getElementById('reason').value;
+    fetch(`${API_BASE}/appointments`, {
+        method: 'POST',
+        headers: { ...authHeader(), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ schedule_slot, reason })
+    })
+    .then(r => r.json().then(data => ({status: r.status, data})))
+    .then(({status, data}) => {
+        if (status === 201) {
+            setText('appt-success', 'Đặt lịch thành công!');
+            loadAppointments();
+        } else {
+            setText('appt-error', data.detail || (data.non_field_errors && data.non_field_errors[0]) || 'Lỗi đặt lịch');
+        }
+    })
+    .catch(() => setText('appt-error', 'Lỗi kết nối appointment_service.'));
+    return false;
+}
+function loadAppointments() {
+    fetch(`${API_BASE}/appointments`, { headers: authHeader() })
+    .then(r => r.json())
+    .then(data => {
+        const tbody = document.querySelector('#appt-table tbody');
+        tbody.innerHTML = '';
+        data.forEach(a => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `<td>${a.id}</td><td>${a.doctor_id}</td><td>${a.appointment_time ? a.appointment_time.replace('T',' ').slice(0,16) : ''}</td><td>${a.reason || ''}</td><td>${a.status}</td>`;
+            tbody.appendChild(tr);
+        });
+    });
+}
+// Tự động chuyển sang main nếu đã có token
+if (getToken()) {
+    hide('login-section');
+    show('main-section');
+    loadSchedules();
+    loadAppointments();
+}
+</script>
+</body>
+</html>
