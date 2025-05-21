@@ -23,13 +23,13 @@ function App() {
           <h2>Hệ thống quản lý bệnh viện</h2>
           <nav style={{marginBottom: 24}}>
             {/* Ẩn/hiện menu theo role */}
-            {userType === 'doctor' && <Link to="/appointments" style={{marginRight: 16}}>Lịch hẹn</Link>}
+            <Link to="/appointments" style={{marginRight: 16}}>Lịch hẹn</Link>
             <Link to="/patient-records" style={{marginRight: 16}}>Hồ sơ bệnh án</Link>
             <Link to="/medication-history" style={{marginRight: 16}}>Lịch sử khám/đơn thuốc</Link>
             <Link to="/reminders">Nhắc nhở</Link>
           </nav>
           <Routes>
-            {userType === 'doctor' && <Route path="/appointments" element={<AppointmentPage />} />}
+            <Route path="/appointments" element={<AppointmentPage />} />
             <Route path="/patient-records" element={<PatientRecordPage />} />
             <Route path="/medication-history" element={<MedicationHistoryPage />} />
             <Route path="/reminders" element={<ReminderPage />} />

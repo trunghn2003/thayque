@@ -10,3 +10,8 @@ class AppointmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Appointment
         fields = '__all__'
+        read_only_fields = ('appointment_time',)
+        extra_kwargs = {
+            'appointment_time': {'required': False, 'allow_null': True}
+        }
+
