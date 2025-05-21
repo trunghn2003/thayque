@@ -3,3 +3,4 @@ __pycache__/
 # ...existing code...
 venv/
 .idea/
+.DS_Store
