@@ -86,14 +86,14 @@ class LabTest(models.Model):
         return self.name
 
 class Reminder(models.Model):
-    patient_id = models.IntegerField()
+    patient_id = models.IntegerField(null=True, blank=True)
     patient_record = models.IntegerField(null=True, blank=True)
     appointment = models.IntegerField(null=True, blank=True)
     prescription = models.ForeignKey('Prescription', null=True, blank=True, on_delete=models.SET_NULL)
     medication = models.ForeignKey('Medication', null=True, blank=True, on_delete=models.SET_NULL)
     message = models.CharField(max_length=255)
     remind_time = models.DateTimeField()
-    type = models.CharField(max_length=50, default="general")  # 'medication', 'appointment', ...
+    type = models.CharField(max_length=50, default='general')
     quantity = models.PositiveIntegerField(null=True, blank=True)
     is_sent = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

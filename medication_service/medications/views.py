@@ -23,6 +23,19 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
     queryset = Prescription.objects.all().order_by('-created_at')
     serializer_class = PrescriptionSerializer
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        diagnosis = self.request.query_params.get('diagnosis')
+        patient_record = self.request.query_params.get('patient_record')
+        appointment = self.request.query_params.get('appointment')
+        if diagnosis:
+            queryset = queryset.filter(diagnosis_id=diagnosis)
+        if patient_record:
+            queryset = queryset.filter(patient_record=patient_record)
+        if appointment:
+            queryset = queryset.filter(appointment=appointment)
+        return queryset
+
     def get_user_info_from_token(self, token):
         user_service_url = 'http://localhost:8004/api/users/me/'
         headers = {'Authorization': f'Bearer {token}'}
@@ -34,22 +47,24 @@ class PrescriptionViewSet(viewsets.ModelViewSet):
                 raise AuthenticationFailed('Token không hợp lệ hoặc user_service lỗi.')
         except requests.RequestException:
             raise AuthenticationFailed('Không thể kết nối user_service.')
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        auth_header = self.request.headers.get('Authorization', '')
-        if auth_header.startswith('Bearer '):
-            token = auth_header.split(' ')[1]
-            user_info = self.get_user_info_from_token(token)
-            user_id = user_info.get('id') or user_info.get('user_id')
-            if user_id:
-                return queryset.filter(patient_id=user_id)
-        return queryset.none()
 
 class LabTestViewSet(viewsets.ModelViewSet):
     queryset = LabTest.objects.all().order_by('-created_at')
     serializer_class = LabTestSerializer
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        diagnosis = self.request.query_params.get('diagnosis')
+        patient_record = self.request.query_params.get('patient_record')
+        appointment = self.request.query_params.get('appointment')
+        if diagnosis:
+            queryset = queryset.filter(diagnosis_id=diagnosis)
+        if patient_record:
+            queryset = queryset.filter(patient_record=patient_record)
+        if appointment:
+            queryset = queryset.filter(appointment=appointment)
+        return queryset
+
     def get_user_info_from_token(self, token):
         user_service_url = 'http://localhost:8004/api/users/me/'
         headers = {'Authorization': f'Bearer {token}'}
@@ -61,17 +76,6 @@ class LabTestViewSet(viewsets.ModelViewSet):
                 raise AuthenticationFailed('Token không hợp lệ hoặc user_service lỗi.')
         except requests.RequestException:
             raise AuthenticationFailed('Không thể kết nối user_service.')
-
-    def get_queryset(self):
-        queryset = super().get_queryset()
-        auth_header = self.request.headers.get('Authorization', '')
-        if auth_header.startswith('Bearer '):
-            token = auth_header.split(' ')[1]
-            user_info = self.get_user_info_from_token(token)
-            user_id = user_info.get('id') or user_info.get('user_id')
-            if user_id:
-                return queryset.filter(patient_id=user_id)
-        return queryset.none()
 
 class PrescriptionInputSerializer(serializers.Serializer):
     medication = serializers.IntegerField()
