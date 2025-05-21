@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function PatientRecordPage() {
-  const [records, setRecords] = useState([]);
+  const [record, setRecord] = useState(null);
   const [error, setError] = useState("");
   const [form, setForm] = useState({
     full_name: "",
@@ -10,25 +10,38 @@ function PatientRecordPage() {
     address: "",
     phone: ""
   });
-  const [editingId, setEditingId] = useState(null);
+  const [editing, setEditing] = useState(false);
+  const userType = localStorage.getItem('user_type');
 
-  const fetchRecords = async () => {
+  const fetchMyRecord = async () => {
     setError("");
     try {
-      const res = await fetch("http://localhost:8002/api/patients/", {
+      const res = await fetch("http://localhost:8002/api/patients/me/", {
         headers: { "Authorization": "Bearer " + localStorage.getItem("token") }
       });
-      const data = await res.json();
-      if (res.status === 200) setRecords(data);
-      else setError("Không lấy được hồ sơ bệnh án");
+      if (res.status === 404) {
+        setRecord(null);
+      } else {
+        const data = await res.json();
+        if (res.status === 200) {
+          setRecord(data);
+          setForm({
+            full_name: data.full_name,
+            date_of_birth: data.date_of_birth,
+            gender: data.gender,
+            address: data.address,
+            phone: data.phone
+          });
+        } else setError("Không lấy được hồ sơ bệnh án");
+      }
     } catch {
       setError("Lỗi kết nối patient_service");
     }
   };
 
   useEffect(() => {
-    fetchRecords();
-  }, []);
+    if (userType === 'patient') fetchMyRecord();
+  }, [userType]);
 
   const handleChange = e => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -37,23 +50,30 @@ function PatientRecordPage() {
   const handleSubmit = async e => {
     e.preventDefault();
     setError("");
-    const method = editingId ? "PUT" : "POST";
-    const url = editingId
-      ? `http://localhost:8002/api/patients/${editingId}/`
-      : "http://localhost:8002/api/patients/";
     try {
-      const res = await fetch(url, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + localStorage.getItem("token")
-        },
-        body: JSON.stringify(form)
-      });
+      let res;
+      if (record) {
+        res = await fetch(`http://localhost:8002/api/patients/${record.id}/`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+          },
+          body: JSON.stringify(form)
+        });
+      } else {
+        res = await fetch("http://localhost:8002/api/patients/", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + localStorage.getItem("token")
+          },
+          body: JSON.stringify(form)
+        });
+      }
       if (res.status === 200 || res.status === 201) {
-        setForm({ full_name: "", date_of_birth: "", gender: "", address: "", phone: "" });
-        setEditingId(null);
-        fetchRecords();
+        setEditing(false);
+        fetchMyRecord();
       } else {
         setError("Lưu hồ sơ thất bại");
       }
@@ -62,65 +82,36 @@ function PatientRecordPage() {
     }
   };
 
-  const handleDelete = async id => {
-    if (!window.confirm("Xóa hồ sơ này?")) return;
-    setError("");
-    try {
-      const res = await fetch(`http://localhost:8002/api/patients/${id}/`, {
-        method: "DELETE",
-        headers: { "Authorization": "Bearer " + localStorage.getItem("token") }
-      });
-      if (res.status === 204) fetchRecords();
-      else setError("Xóa hồ sơ thất bại");
-    } catch {
-      setError("Lỗi kết nối patient_service");
-    }
-  };
-
-  const handleEdit = record => {
-    setForm({
-      full_name: record.full_name,
-      date_of_birth: record.date_of_birth,
-      gender: record.gender,
-      address: record.address,
-      phone: record.phone
-    });
-    setEditingId(record.id);
-  };
-
-  const handleCancelEdit = () => {
-    setForm({ full_name: "", date_of_birth: "", gender: "", address: "", phone: "" });
-    setEditingId(null);
-  };
+  if (userType !== 'patient') {
+    return null;
+  }
 
   return (
     <div>
-      <h2>Hồ sơ bệnh án</h2>
+      <h2>Hồ sơ bệnh án của tôi</h2>
       {error && <div style={{color: 'red'}}>{error}</div>}
-      <form onSubmit={handleSubmit} style={{marginBottom: 20, background: '#f8f8f8', padding: 16, borderRadius: 8}}>
-        <h4>{editingId ? "Cập nhật hồ sơ" : "Thêm mới hồ sơ"}</h4>
-        <input name="full_name" placeholder="Họ tên" value={form.full_name} onChange={handleChange} required />{' '}
-        <input name="date_of_birth" type="date" placeholder="Ngày sinh" value={form.date_of_birth} onChange={handleChange} required />{' '}
-        <select name="gender" value={form.gender} onChange={handleChange} required>
-          <option value="">Giới tính</option>
-          <option value="male">Nam</option>
-          <option value="female">Nữ</option>
-          <option value="other">Khác</option>
-        </select>{' '}
-        <input name="address" placeholder="Địa chỉ" value={form.address} onChange={handleChange} required />{' '}
-        <input name="phone" placeholder="SĐT" value={form.phone} onChange={handleChange} required />{' '}
-        <button type="submit">{editingId ? "Lưu" : "Thêm"}</button>
-        {editingId && <button type="button" onClick={handleCancelEdit}>Hủy</button>}
-      </form>
-      <ul>
-        {records.map(r => (
-          <li key={r.id} style={{marginBottom: 8}}>
-            <b>{r.full_name}</b> - Ngày sinh: {r.date_of_birth} - Giới tính: {r.gender} - Địa chỉ: {r.address} - SĐT: {r.phone}
-            <button style={{marginLeft: 8}} onClick={() => handleEdit(r)}>Sửa</button>
-            <button style={{marginLeft: 4}} onClick={() => handleDelete(r.id)}>Xóa</button>
-          </li>
-        ))}
-      </ul>
+      {record && !editing ? (
+        <div style={{background: '#f8f8f8', padding: 16, borderRadius: 8, marginBottom: 16}}>
+          <b>{record.full_name}</b> - Ngày sinh: {record.date_of_birth} - Giới tính: {record.gender} - Địa chỉ: {record.address} - SĐT: {record.phone}
+          <button style={{marginLeft: 8}} onClick={() => setEditing(true)}>Sửa</button>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} style={{marginBottom: 20, background: '#f8f8f8', padding: 16, borderRadius: 8}}>
+          <h4>{record ? "Cập nhật hồ sơ" : "Tạo hồ sơ bệnh án của bạn"}</h4>
+          <input name="full_name" placeholder="Họ tên" value={form.full_name} onChange={handleChange} required />{' '}
+          <input name="date_of_birth" type="date" placeholder="Ngày sinh" value={form.date_of_birth} onChange={handleChange} required />{' '}
+          <select name="gender" value={form.gender} onChange={handleChange} required>
+            <option value="">Giới tính</option>
+            <option value="male">Nam</option>
+            <option value="female">Nữ</option>
+            <option value="other">Khác</option>
+          </select>{' '}
+          <input name="address" placeholder="Địa chỉ" value={form.address} onChange={handleChange} required />{' '}
+          <input name="phone" placeholder="SĐT" value={form.phone} onChange={handleChange} required />{' '}
+          <button type="submit">{record ? "Lưu" : "Tạo mới"}</button>
+          {record && <button type="button" onClick={() => setEditing(false)}>Hủy</button>}
+        </form>
+      )}
     </div>
   );
 }
