@@ -237,6 +237,22 @@ def load_resources(artifact_dir='.'):
         for key in symptom_names:
             if key not in symptom_translation_vi:
                 print(f"Cảnh báo: Triệu chứng '{key}' có trong symptom_names nhưng thiếu trong bản đồ dịch.")
+        
+        # Kiểm tra kích thước vector triệu chứng và kích thước input model
+        if hasattr(symptom_model, 'input_shape') and symptom_model.input_shape[1] is not None:
+            model_symptom_dim = symptom_model.input_shape[1]
+            if len(symptom_names) != model_symptom_dim:
+                print(f"Cảnh báo: Kích thước danh sách triệu chứng ({len(symptom_names)}) không khớp với kích thước đầu vào của model ({model_symptom_dim}).")
+                print(f"         Chatbot sẽ tự động điều chỉnh kích thước vector khi dự đoán.")
+                
+        # Kiểm tra số lượng bệnh trong danh sách và đầu ra model
+        if hasattr(symptom_model, 'output_shape') and symptom_model.output_shape[1] is not None:
+            model_disease_count = symptom_model.output_shape[1]
+            if len(disease_names_vi) != model_disease_count:
+                print(f"Cảnh báo: Số lượng bệnh trong danh sách ({len(disease_names_vi)}) không khớp với đầu ra của model ({model_disease_count}).")
+                print(f"         Đang sử dụng file: {disease_names_vi_path}")
+                print(f"         Hãy đảm bảo đang sử dụng đúng file danh sách bệnh cho model filtered.")
+        
         for key_tree in SYMPTOM_QUESTIONING_TREE:
              node = SYMPTOM_QUESTIONING_TREE[key_tree]
              s_key = node.get('symptom_key')
@@ -288,33 +304,68 @@ def predict_intent(text):
 
 def get_symptom_prediction(symptom_vector):
     """Dự đoán bệnh từ vector triệu chứng"""
-    global symptom_model, disease_names_vi, symptom_names
-    if not all([symptom_model, disease_names_vi, symptom_names]):
+    global symptom_model, disease_names_vi, symptom_names, symptom_encoder
+    
+    if not all([symptom_model, disease_names_vi]):
         raise ValueError("Symptom checker chưa được khởi tạo đầy đủ.")
+    
     try:
+        # BƯỚC 1: Điều chỉnh kích thước vector đầu vào nếu cần
         input_array = np.array([symptom_vector], dtype=np.float32)
-        # Kiểm tra kích thước input
-        expected_input_size = len(symptom_names)
-        if symptom_model.input_shape[1] is not None: # Kiểm tra nếu model có input_shape cố định
-             expected_input_size = symptom_model.input_shape[1]
-
+        expected_input_size = 32  # Kích thước cứng nếu biết model cần 32 features
+        
         if input_array.shape[1] != expected_input_size:
-             raise ValueError(f"Input shape không khớp: {input_array.shape[1]} vs {expected_input_size}")
-
+            print(f"Điều chỉnh kích thước vector từ {input_array.shape[1]} -> {expected_input_size}")
+            
+            if input_array.shape[1] > expected_input_size:
+                # Cắt bớt vector nếu dài hơn yêu cầu
+                input_array = input_array[:, :expected_input_size]
+                print(f"Đã cắt bớt vector triệu chứng xuống {expected_input_size} phần tử")
+            else:
+                # Padding nếu vector ngắn hơn yêu cầu
+                padded_array = np.zeros((1, expected_input_size), dtype=np.float32)
+                padded_array[:, :input_array.shape[1]] = input_array
+                input_array = padded_array
+                print(f"Đã padding vector triệu chứng lên {expected_input_size} phần tử")
+        
+        # BƯỚC 2: Dự đoán với model
         predictions = symptom_model.predict(input_array, verbose=0)
-        sorted_indices = np.argsort(predictions[0])[::-1]
-
+        print(f"DEBUG: Shape of prediction output: {predictions.shape}")
+        
+        # BƯỚC 3: Xử lý kết quả dự đoán
+        # Đảm bảo chúng ta có danh sách bệnh
+        if len(disease_names_vi) < 1:
+            print("ERROR: Danh sách bệnh trống")
+            return "Lỗi dự đoán", []
+        
+        # Lấy số lượng nhãn nhỏ nhất giữa output model và danh sách bệnh
+        num_classes = min(predictions.shape[1], len(disease_names_vi))
+        print(f"DEBUG: Using {num_classes} classes")
+        
+        # Lấy top indices
+        sorted_indices = np.argsort(predictions[0][:num_classes])[::-1]
+        
+        # Tạo danh sách kết quả
         results = []
-        for i in range(min(5, len(disease_names_vi))): # Top 5
+        for i in range(min(5, num_classes)):
             idx = sorted_indices[i]
-            results.append({"disease": disease_names_vi[idx], "probability": float(predictions[0][idx])})
-        most_likely = disease_names_vi[sorted_indices[0]]
-        return most_likely, results
-
+            if idx < len(disease_names_vi):  # Safety check
+                disease_name = disease_names_vi[idx]
+                probability = float(predictions[0][idx])
+                results.append({"disease": disease_name, "probability": probability})
+        
+        # Lấy bệnh có xác suất cao nhất
+        if results:
+            most_likely = results[0]["disease"]
+            return most_likely, results
+        else:
+            return "Không xác định", []
+            
     except Exception as e:
         print(f"Lỗi khi dự đoán triệu chứng: {e}")
+        import traceback
+        traceback.print_exc()  # In stack trace chi tiết
         return "Lỗi dự đoán", []
-    pass
 
 
 # --- Quản lý trạng thái hỏi triệu chứng (Sửa đổi để dùng cây) ---
@@ -439,16 +490,18 @@ def generate_response(user_message, history):
              if symptom_key_just_asked and symptom_key_just_asked in symptom_names:
                  try:
                      symptom_index = symptom_names.index(symptom_key_just_asked)
-                     # Đảm bảo vector có đúng kích thước trước khi gán
-                     if len(current_symptom_session.get("symptom_vector", [])) == len(symptom_names):
+                     vector_size = len(current_symptom_session.get("symptom_vector", []))
+                     
+                     # Đảm bảo vector có đúng kích thước và symptom_index nằm trong phạm vi hợp lệ
+                     if vector_size > 0 and symptom_index < vector_size:
                          current_symptom_session["symptom_vector"][symptom_index] = 1.0 if is_affirmative else 0.0
                          print(f"DEBUG: Updated vector for {symptom_key_just_asked} = {current_symptom_session['symptom_vector'][symptom_index]}")
+                     elif vector_size > 0 and symptom_index >= vector_size:
+                         print(f"DEBUG: Không thể cập nhật vector cho '{symptom_key_just_asked}' vì index ({symptom_index}) vượt quá kích thước vector ({vector_size}).")
+                         # Không cập nhật vector nếu index vượt quá kích thước - đây là trường hợp model kích thước nhỏ hơn danh sách triệu chứng
                      else:
-                         print(f"DEBUG: Lỗi kích thước symptom_vector khi cập nhật {symptom_key_just_asked}. Vector size: {len(current_symptom_session.get('symptom_vector', []))}, Expected: {len(symptom_names)}")
+                         print(f"DEBUG: Lỗi kích thước symptom_vector khi cập nhật {symptom_key_just_asked}. Vector size: {vector_size}")
                          # Khởi tạo lại vector nếu có lỗi? Hoặc báo lỗi và dừng.
-                         # current_symptom_session["symptom_vector"] = [0.0] * len(symptom_names) # Tùy chọn: reset vector
-                         # current_symptom_session["symptom_vector"][symptom_index] = 1.0 if is_affirmative else 0.0
-
                  except ValueError:
                       print(f"DEBUG: Lỗi - symptom_key '{symptom_key_just_asked}' có trong node nhưng không tìm thấy trong symptom_names list?")
              elif symptom_key_just_asked and "general" not in symptom_key_just_asked and "detail" not in symptom_key_just_asked: # Bỏ qua key ảo
@@ -461,63 +514,60 @@ def generate_response(user_message, history):
              if next_node_key == 'PREDICT':
                  print(f"DEBUG: Reached end state ({current_node_key} -> {('Yes' if is_affirmative else 'No')} -> PREDICT), predicting...")
                  # Đảm bảo vector hợp lệ trước khi dự đoán
-                 if len(current_symptom_session.get("symptom_vector", [])) == len(symptom_names):
-                     most_likely, results_list = get_symptom_prediction(current_symptom_session["symptom_vector"])
+                 if len(current_symptom_session.get("symptom_vector", [])) > 0:
+                     try:
+                         most_likely, results_list = get_symptom_prediction(current_symptom_session["symptom_vector"])
 
-                     # --- BẮT ĐẦU THAY ĐỔI ĐỊNH DẠNG OUTPUT ---
+                         # --- BẮT ĐẦU THAY ĐỔI ĐỊNH DẠNG OUTPUT ---
+                         response_lines = [] # Bắt đầu list mới cho các dòng output
 
-                     response_lines = [] # Bắt đầu list mới cho các dòng output
+                         # 1. Tiêu đề
+                         response_lines.append("**Kết quả gợi ý (Chỉ mang tính tham khảo)**")
+                         response_lines.append("---") # Dòng kẻ ngang phân cách
 
-                     # 1. Tiêu đề
-                     response_lines.append("**Kết quả gợi ý (Chỉ mang tính tham khảo)**")
-                     response_lines.append("---") # Dòng kẻ ngang phân cách
+                         # 2. (Tùy chọn) Tóm tắt triệu chứng đã xác nhận
+                         confirmed_symptoms_vi = []
+                         symptom_vector = current_symptom_session.get("symptom_vector", [])
+                         # Lặp qua vector triệu chứng để tìm các triệu chứng được xác nhận (giá trị = 1.0)
+                         for index, value in enumerate(symptom_vector):
+                             if value == 1.0 and index < len(symptom_names):
+                                 symptom_key_en = symptom_names[index]
+                                 # Lấy tên tiếng Việt từ bản đồ dịch, nếu không có thì dùng key tiếng Anh
+                                 symptom_name_vi = symptom_translation_vi_map.get(symptom_key_en, symptom_key_en.replace('_', ' '))
+                                 confirmed_symptoms_vi.append(symptom_name_vi)
 
-                     # 2. (Tùy chọn) Tóm tắt triệu chứng đã xác nhận
-                     confirmed_symptoms_vi = []
-                     symptom_vector = current_symptom_session.get("symptom_vector", [])
-                     # Lặp qua vector triệu chứng để tìm các triệu chứng được xác nhận (giá trị = 1.0)
-                     for index, value in enumerate(symptom_vector):
-                         if value == 1.0 and index < len(symptom_names):
-                             symptom_key_en = symptom_names[index]
-                             # Lấy tên tiếng Việt từ bản đồ dịch, nếu không có thì dùng key tiếng Anh
-                             symptom_name_vi = symptom_translation_vi_map.get(symptom_key_en, symptom_key_en.replace('_', ' '))
-                             confirmed_symptoms_vi.append(symptom_name_vi)
+                         # Thêm câu dẫn và danh sách triệu chứng nếu có
+                         if confirmed_symptoms_vi:
+                             # Giới hạn số lượng triệu chứng hiển thị nếu quá dài (ví dụ: 5 triệu chứng đầu)
+                             max_symptoms_to_show = 5
+                             symptoms_text = ", ".join(confirmed_symptoms_vi[:max_symptoms_to_show])
+                             if len(confirmed_symptoms_vi) > max_symptoms_to_show:
+                                  symptoms_text += ",..." # Thêm dấu ... nếu danh sách dài hơn
+                             response_lines.append(f"Dựa trên các triệu chứng bạn cung cấp: {symptoms_text}, bạn có khả năng đang mắc phải:")
+                         else:
+                             # Câu dẫn chung nếu không tóm tắt được triệu chứng
+                             response_lines.append("Dựa trên các triệu chứng bạn đã cung cấp, bạn có khả năng đang mắc phải:")
 
-                     # Thêm câu dẫn và danh sách triệu chứng nếu có
-                     if confirmed_symptoms_vi:
-                         # Giới hạn số lượng triệu chứng hiển thị nếu quá dài (ví dụ: 5 triệu chứng đầu)
-                         max_symptoms_to_show = 5
-                         symptoms_text = ", ".join(confirmed_symptoms_vi[:max_symptoms_to_show])
-                         if len(confirmed_symptoms_vi) > max_symptoms_to_show:
-                              symptoms_text += ",..." # Thêm dấu ... nếu danh sách dài hơn
-                         response_lines.append(f"Dựa trên các triệu chứng bạn cung cấp:{symptoms_text}, bạn có khả năng đang mắc phải:")
-                     else:
-                         # Câu dẫn chung nếu không tóm tắt được triệu chứng
-                         response_lines.append("Dựa trên các triệu chứng bạn đã cung cấp, bạn có khả năng đang mắc phải:")
+                         # 3. Hiển thị bệnh có khả năng cao nhất (in đậm)
+                         if most_likely and most_likely != "Lỗi dự đoán" and most_likely != "Không thể đưa ra chẩn đoán":
+                             response_lines.append(f"-> **{most_likely}**")
+                         else:
+                             # Xử lý trường hợp không có dự đoán hoặc có lỗi
+                             response_lines.append("-> *Không thể đưa ra gợi ý cụ thể dựa trên thông tin hiện có.*")
 
-                     # 3. Hiển thị bệnh có khả năng cao nhất (in đậm)
-                     if most_likely and most_likely != "Lỗi dự đoán":
-                         response_lines.append(f"-> **{most_likely}**")
-                     else:
-                         # Xử lý trường hợp không có dự đoán hoặc có lỗi
-                         response_lines.append("-> *Không thể đưa ra gợi ý cụ thể dựa trên thông tin hiện có.*")
+                         # 4. Lưu ý quan trọng (định dạng lại - SỬA LẠI DÙNG MARKDOWN LIST)
+                         response_lines.append("\n\n---") # Thêm dòng trống trước HR
+                         response_lines.append("\n**Lưu ý quan trọng:**\n") # Thêm dòng trống sau tiêu đề
 
+                         # Sử dụng '*' hoặc '-' và dấu cách để tạo danh sách Markdown chuẩn
+                         response_lines.append("* Kết quả này **KHÔNG** phải là chẩn đoán y tế.")
+                         response_lines.append("* Vui lòng **luôn tham khảo ý kiến bác sĩ** để được chẩn đoán chính xác và tư vấn điều trị phù hợp.")
 
-                     # 4. Lưu ý quan trọng (định dạng lại)
-                     # 4. Lưu ý quan trọng (định dạng lại - SỬA LẠI DÙNG MARKDOWN LIST)
-                     response_lines.append("\n\n---") # Thêm dòng trống trước HR
-                     response_lines.append("\n**Lưu ý quan trọng:**\n") # Thêm dòng trống sau tiêu đề
-
-                    # Sử dụng '*' hoặc '-' và dấu cách để tạo danh sách Markdown chuẩn
-                     response_lines.append("* Kết quả này **KHÔNG** phải là chẩn đoán y tế.")
-                     response_lines.append("* Vui lòng **luôn tham khảo ý kiến bác sĩ** để được chẩn đoán chính xác và tư vấn điều trị phù hợp.")
-
-                    # Nối các dòng lại. Các \n giữa các mục append sẽ được marked.js xử lý đúng cách
-                    # để tạo ra cấu trúc HTML (ví dụ: <hr>, <p><strong>...</strong></p>, <ul><li>...</li></ul>)
-                     bot_response = "\n".join(response_lines)
-
-                     # --- KẾT THÚC THAY ĐỔI ĐỊNH DẠNG OUTPUT ---
-
+                         # Nối các dòng lại
+                         bot_response = "\n".join(response_lines)
+                     except Exception as e:
+                         print(f"ERROR: Exception during prediction: {e}")
+                         bot_response = "**Lỗi kỹ thuật**: Xin lỗi, đã xảy ra lỗi trong quá trình phân tích triệu chứng. Vui lòng thử lại sau."
                  else:
                      # Giữ nguyên thông báo lỗi nếu vector không hợp lệ
                      bot_response = "**Lỗi**: Không đủ thông tin triệu chứng để đưa ra gợi ý."
@@ -575,7 +625,12 @@ def generate_response(user_message, history):
 
             # Khởi tạo session mới
             current_symptom_session["active"] = True
-            current_symptom_session["symptom_vector"] = [0.0] * len(symptom_names) # Vector ban đầu toàn số 0
+            
+            # Xác định kích thước vector đúng - hard-code kích thước là 32 cho model filtered
+            vector_size = 32
+            print(f"Khởi tạo vector triệu chứng với kích thước cố định {vector_size}")
+            
+            current_symptom_session["symptom_vector"] = [0.0] * vector_size # Vector ban đầu toàn số 0
             current_symptom_session["current_node_key"] = "START" # <<< Quan trọng: Giữ là "START"
 
             # Keyword Spotting (có thể cần cải thiện)
@@ -585,11 +640,14 @@ def generate_response(user_message, history):
                 if symptom_key in symptom_names:
                     try:
                        symptom_index = symptom_names.index(symptom_key)
-                       # Đảm bảo vector có đúng kích thước
-                       if len(current_symptom_session["symptom_vector"]) == len(symptom_names):
+                       vector_size = len(current_symptom_session["symptom_vector"])
+                       # Đảm bảo vector có đúng kích thước và symptom_index nằm trong phạm vi hợp lệ
+                       if vector_size > 0 and symptom_index < vector_size:
                             current_symptom_session["symptom_vector"][symptom_index] = 1.0
+                       elif vector_size > 0 and symptom_index >= vector_size:
+                            print(f"DEBUG: Bỏ qua spotted symptom '{symptom_key}' vì index ({symptom_index}) vượt quá kích thước vector ({vector_size}).")
                        else:
-                            print(f"DEBUG: Lỗi kích thước vector khi spotting symptom '{symptom_key}'.")
+                            print(f"DEBUG: Lỗi kích thước vector khi spotting symptom '{symptom_key}'. Vector size: {vector_size}")
                     except ValueError:
                         print(f"DEBUG: Lỗi - spotted symptom '{symptom_key}' không có index trong symptom_names?")
 

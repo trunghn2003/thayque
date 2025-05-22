@@ -69,4 +69,4 @@ def chat():
 if __name__ == '__main__':
     # Chạy Flask server ở chế độ debug (chỉ dùng cho phát triển)
     # Host '0.0.0.0' cho phép truy cập từ máy khác trong cùng mạng LAN
-    app.run(host='0.0.0.0', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5001, debug=True)
