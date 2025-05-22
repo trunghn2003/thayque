@@ -17,10 +17,10 @@ for service in appointment_service patient_service medication_service user_servi
 done
 
 # Start each service in the background, mỗi service dùng venv riêng
-cd appointment_service && source venv/bin/activate && python manage.py runserver 8001 &
-cd patient_service && source venv/bin/activate && python manage.py runserver 8002 &
-cd medication_service && source venv/bin/activate && python manage.py runserver 8003 &
-cd user_service && source venv/bin/activate && python manage.py runserver 8004 &
+cd appointment_service  && python manage.py runserver 8001 &
+cd patient_service  && python manage.py runserver 8002 &
+cd medication_service  && python manage.py runserver 8003 &
+cd user_service  && python manage.py runserver 8004 &
 
 # Quay lại thư mục gốc và thông báo
 cd ..
