@@ -15,7 +15,7 @@ if (!suggestionsArea) console.error("CRITICAL: suggestionsArea element not found
 
 // --- Lịch sử Chat ---
 let chatHistory = [
-    { role: 'bot', content: 'Xin chào! Tôi là trợ lý ảo HMS. Tôi có thể giúp gì cho bạn?' }
+    { }
 ];
 
 // --- Tin nhắn mẫu ---
@@ -26,28 +26,45 @@ const sampleMessages = [
 
 // --- Hàm hiển thị tin nhắn (THÊM LOGGING + TẠM THỜI ĐƠN GIẢN HÓA) ---
 function displayMessage(sender, message, isTyping = false) {
-    console.log(`[displayMessage] Called. Sender=${sender}, Typing=${isTyping}`); // LOG 1
+    console.log(`[displayMessage] Called. Sender=${sender}, Typing=${isTyping}`);
+    
     if (!message && !isTyping) {
         console.warn("[displayMessage] Message is empty and not typing.");
-        // Không return, vẫn tạo div trống để debug
     }
 
-    const messageDiv = document.createElement('div');
-    messageDiv.classList.add('message'); // Thêm class chung trước
+    // Create container for both bot and user messages
+    const messageContainer = document.createElement('div');
+    messageContainer.classList.add('message-container');
+    messageContainer.classList.add(sender === 'user' ? 'user-message-container' : 'bot-message-container');
 
     if (isTyping) {
-        console.log("[displayMessage] Adding typing indicator styles."); // LOG 2
-        messageDiv.classList.add('bot-message', 'typing-indicator'); // Thêm class bot
-        messageDiv.innerHTML = `<span></span><span></span><span></span>`;
-        messageDiv.setAttribute('id', 'typingIndicator');
-    } else {
-        messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message'); // Thêm class user/bot
-        console.log(`[displayMessage] Setting text content for ${sender}: "${message}"`); // LOG 3
-        // --- TẠM THỜI LUÔN DÙNG textContent ĐỂ DEBUG ---
-        // Thêm tiền tố để chắc chắn thấy được tin nhắn nếu nó xuất hiện
-        // messageDiv.textContent = `[${sender.toUpperCase()}] ${message || '(Empty Message!)'}`;
-        // --- KHI FIX XONG, BỎ COMMENT PHẦN DƯỚI VÀ XÓA DÒNG TRÊN ---
+        console.log("[displayMessage] Adding typing indicator styles.");
+        const avatar = document.createElement('img');
+        avatar.src = '/static/doctor.jpg';
+        avatar.alt = 'HMS Bot';
+        avatar.className = 'bot-avatar';
         
+        const indicatorDiv = document.createElement('div');
+        indicatorDiv.classList.add('bot-message', 'typing-indicator');
+        indicatorDiv.innerHTML = `<span></span><span></span><span></span>`;
+        indicatorDiv.setAttribute('id', 'typingIndicator');
+        
+        messageContainer.appendChild(avatar);
+        messageContainer.appendChild(indicatorDiv);
+    } else {
+        if (sender === 'bot') {
+            // Add avatar for bot messages
+            const avatar = document.createElement('img');
+            avatar.src = '/static/doctor.jpg';
+            avatar.alt = 'HMS Bot';
+            avatar.className = 'bot-avatar';
+            messageContainer.appendChild(avatar);
+        }
+
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('message');
+        messageDiv.classList.add(sender === 'user' ? 'user-message' : 'bot-message');
+
         if (sender === 'bot') {
             if (typeof marked === 'undefined') {
                 console.error('[displayMessage] Marked.js library not loaded!');
@@ -58,23 +75,23 @@ function displayMessage(sender, message, isTyping = false) {
                     console.log("[displayMessage] Parsed Markdown for bot message.");
                 } catch (error) {
                     console.error('[displayMessage] Error parsing Markdown:', error);
-                    messageDiv.textContent = message; // Fallback
+                    messageDiv.textContent = message;
                 }
             }
         } else {
             messageDiv.textContent = message;
         }
         
+        messageContainer.appendChild(messageDiv);
     }
 
-    // Thêm vào DOM
+    // Add to DOM
     try {
         if (chatbox) {
-            chatbox.appendChild(messageDiv);
-            console.log("[displayMessage] Message div successfully appended to chatbox."); // LOG 4
-            // Cuộn xuống tin nhắn mới nhất
+            chatbox.appendChild(messageContainer);
+            console.log("[displayMessage] Message container successfully appended to chatbox.");
             chatbox.scrollTop = chatbox.scrollHeight;
-            console.log("[displayMessage] Scrolled chatbox."); // LOG 5
+            console.log("[displayMessage] Scrolled chatbox.");
         } else {
             console.error("[displayMessage] Chatbox element is NULL when trying to append!");
         }
@@ -82,7 +99,7 @@ function displayMessage(sender, message, isTyping = false) {
         console.error("[displayMessage] Error during appendChild:", e);
     }
 
-    return messageDiv;
+    return messageContainer;
 }
 
 // --- Hàm Typing Indicator ---
@@ -92,24 +109,21 @@ function showTypingIndicator() {
     displayMessage('bot', '', true);
 }
 function removeTypingIndicator() {
-    const indicator = document.getElementById('typingIndicator');
-    if (indicator) {
-         console.log("[removeTypingIndicator] Found indicator.");
-        try {
-            if (indicator.parentNode === chatbox) {
-                 chatbox.removeChild(indicator);
-                 console.log("[removeTypingIndicator] Indicator removed.");
-            } else {
-                 console.warn("[removeTypingIndicator] Indicator parent is not chatbox.");
-                 // Thử xóa trực tiếp nếu parent không đúng
-                 // indicator.remove();
+    // Look for the container with typing indicator
+    const containers = document.querySelectorAll('.bot-message-container');
+    for (const container of containers) {
+        if (container.querySelector('.typing-indicator')) {
+            console.log("[removeTypingIndicator] Found typing indicator container.");
+            try {
+                chatbox.removeChild(container);
+                console.log("[removeTypingIndicator] Indicator container removed.");
+                return;
+            } catch(e) {
+                console.error("[removeTypingIndicator] Error removing container:", e);
             }
-        } catch(e) {
-             console.error("[removeTypingIndicator] Error removing indicator:", e);
         }
-    } else {
-         console.log("[removeTypingIndicator] No indicator found to remove.");
     }
+    console.log("[removeTypingIndicator] No indicator found to remove.");
 }
 
 // --- Hàm gửi tin nhắn (THÊM LOGGING) ---

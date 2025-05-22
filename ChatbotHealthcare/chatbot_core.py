@@ -304,68 +304,65 @@ def predict_intent(text):
 
 def get_symptom_prediction(symptom_vector):
     """Dự đoán bệnh từ vector triệu chứng"""
-    global symptom_model, disease_names_vi, symptom_names, symptom_encoder
+    global symptom_model, disease_names_vi
     
     if not all([symptom_model, disease_names_vi]):
-        raise ValueError("Symptom checker chưa được khởi tạo đầy đủ.")
+        return "Lỗi dự đoán", []
     
     try:
-        # BƯỚC 1: Điều chỉnh kích thước vector đầu vào nếu cần
-        input_array = np.array([symptom_vector], dtype=np.float32)
-        expected_input_size = 32  # Kích thước cứng nếu biết model cần 32 features
+        # 1. Chuẩn bị input vector
+        input_array = np.array([symptom_vector])
+        expected_size = 35  # Size cố định cho model filtered
         
-        if input_array.shape[1] != expected_input_size:
-            print(f"Điều chỉnh kích thước vector từ {input_array.shape[1]} -> {expected_input_size}")
-            
-            if input_array.shape[1] > expected_input_size:
-                # Cắt bớt vector nếu dài hơn yêu cầu
-                input_array = input_array[:, :expected_input_size]
-                print(f"Đã cắt bớt vector triệu chứng xuống {expected_input_size} phần tử")
+        # Điều chỉnh kích thước nếu cần
+        if input_array.shape[1] != expected_size:
+            if input_array.shape[1] > expected_size:
+                input_array = input_array[:, :expected_size]
             else:
-                # Padding nếu vector ngắn hơn yêu cầu
-                padded_array = np.zeros((1, expected_input_size), dtype=np.float32)
-                padded_array[:, :input_array.shape[1]] = input_array
-                input_array = padded_array
-                print(f"Đã padding vector triệu chứng lên {expected_input_size} phần tử")
+                padded = np.zeros((1, expected_size))
+                padded[:, :input_array.shape[1]] = input_array
+                input_array = padded
+                
+        # 2. Debug input
+        print(f"DEBUG Input shape: {input_array.shape}")
+        print(f"DEBUG Input values: {input_array[0]}")
+        print(f"DEBUG Input sum: {np.sum(input_array[0])}") # Kiểm tra số triệu chứng
         
-        # BƯỚC 2: Dự đoán với model
+        # 3. Dự đoán và lọc kết quả
         predictions = symptom_model.predict(input_array, verbose=0)
-        print(f"DEBUG: Shape of prediction output: {predictions.shape}")
+        print(f"DEBUG Raw predictions: {predictions[0]}")
         
-        # BƯỚC 3: Xử lý kết quả dự đoán
-        # Đảm bảo chúng ta có danh sách bệnh
-        if len(disease_names_vi) < 1:
-            print("ERROR: Danh sách bệnh trống")
-            return "Lỗi dự đoán", []
-        
-        # Lấy số lượng nhãn nhỏ nhất giữa output model và danh sách bệnh
-        num_classes = min(predictions.shape[1], len(disease_names_vi))
-        print(f"DEBUG: Using {num_classes} classes")
-        
-        # Lấy top indices
-        sorted_indices = np.argsort(predictions[0][:num_classes])[::-1]
-        
-        # Tạo danh sách kết quả
-        results = []
-        for i in range(min(5, num_classes)):
-            idx = sorted_indices[i]
-            if idx < len(disease_names_vi):  # Safety check
-                disease_name = disease_names_vi[idx]
-                probability = float(predictions[0][idx])
-                results.append({"disease": disease_name, "probability": probability})
-        
-        # Lấy bệnh có xác suất cao nhất
-        if results:
-            most_likely = results[0]["disease"]
-            return most_likely, results
-        else:
-            return "Không xác định", []
+        # 4. Kiểm tra và lọc kết quả
+        if np.sum(input_array[0]) < 2:  # Ít nhất 2 triệu chứng
+            return "Cần thêm thông tin", []
             
+        if np.max(predictions[0]) < 0.3:  # Threshold 30%
+            return "Không đủ thông tin để đưa ra gợi ý", []
+        
+        # 5. Lấy top 3 bệnh có xác suất cao nhất
+        results = []
+        sorted_indices = np.argsort(predictions[0])[::-1]
+        
+        for idx in sorted_indices[:3]:  # Top 3
+            prob = float(predictions[0][idx])
+            if prob >= 0.3:  # Chỉ lấy bệnh có xác suất >= 30%
+                if idx < len(disease_names_vi):
+                    results.append({
+                        "disease": disease_names_vi[idx],
+                        "probability": prob
+                    })
+                    
+        if results:
+            most_likely = results[0]["disease"]  
+            return most_likely, results
+            
+        return "Không thể đưa ra gợi ý cụ thể", []
+        
     except Exception as e:
-        print(f"Lỗi khi dự đoán triệu chứng: {e}")
+        print(f"Error in prediction: {str(e)}")
         import traceback
-        traceback.print_exc()  # In stack trace chi tiết
-        return "Lỗi dự đoán", []
+        traceback.print_exc()
+        return "Lỗi khi phân tích triệu chứng", []
 
 
 # --- Quản lý trạng thái hỏi triệu chứng (Sửa đổi để dùng cây) ---
@@ -627,7 +624,7 @@ def generate_response(user_message, history):
             current_symptom_session["active"] = True
             
             # Xác định kích thước vector đúng - hard-code kích thước là 32 cho model filtered
-            vector_size = 32
+            vector_size = 35
             print(f"Khởi tạo vector triệu chứng với kích thước cố định {vector_size}")
             
             current_symptom_session["symptom_vector"] = [0.0] * vector_size # Vector ban đầu toàn số 0

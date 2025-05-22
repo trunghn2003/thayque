@@ -10,9 +10,9 @@
                 "Alo"
             ],
             "responses": [
-                "Xin chào! Tôi là trợ lý ảo HMS, tôi có thể giúp gì?",
+                "Xin chào! Tôi là trợ lý ảo Healthcare Chatbot, tôi có thể giúp gì?",
                 "Chào bạn, bạn cần hỗ trợ gì ạ?",
-                "HMS xin chào!"
+                "Healthcare Chatbot xin chào!"
             ]
         },
         {
@@ -53,7 +53,7 @@
                 "Đặt hẹn như thế nào?"
             ],
             "responses": [
-                "Bạn có thể đặt lịch khám trực tuyến qua website hoặc ứng dụng HMS. Chọn chuyên khoa/bác sĩ và khung giờ còn trống nhé.",
+                "Bạn có thể đặt lịch khám trực tuyến qua website hoặc ứng dụng Healthcare Chatbot. Chọn chuyên khoa/bác sĩ và khung giờ còn trống nhé.",
                 "Để đặt lịch, vui lòng đăng nhập và vào mục 'Đặt lịch hẹn'."
             ]
         },
@@ -100,9 +100,9 @@
                 "Ê"
             ],
             "responses": [
-                "Xin chào! Tôi là trợ lý ảo HMS, tôi có thể giúp gì cho bạn hôm nay?",
+                "Xin chào! Tôi là trợ lý ảo Healthcare Chatbot, tôi có thể giúp gì cho bạn hôm nay?",
                 "Chào bạn, rất vui được hỗ trợ bạn. Bạn cần thông tin gì?",
-                "HMS xin chào! Bạn có câu hỏi nào không?",
+                "Healthcare Chatbot xin chào! Bạn có câu hỏi nào không?",
                 "Xin chào, tôi có thể giúp gì?"
             ]
         },
@@ -218,8 +218,8 @@
                 "Need to book appointment"
             ],
             "responses": [
-                "Bạn có thể đặt lịch khám trực tuyến qua website hoặc ứng dụng di động của HMS. Bạn cần đăng nhập, chọn chuyên khoa hoặc bác sĩ mong muốn, sau đó chọn ngày và khung giờ còn trống phù hợp.",
-                "Để đặt lịch, vui lòng đăng nhập vào tài khoản HMS của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' và làm theo hướng dẫn.",
+                "Bạn có thể đặt lịch khám trực tuyến qua website hoặc ứng dụng di động của Healthcare Chatbot. Bạn cần đăng nhập, chọn chuyên khoa hoặc bác sĩ mong muốn, sau đó chọn ngày và khung giờ còn trống phù hợp.",
+                "Để đặt lịch, vui lòng đăng nhập vào tài khoản Healthcare Chatbot của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' và làm theo hướng dẫn.",
                 "Quy trình đặt lịch khá đơn giản: Đăng nhập -> Chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ -> Xác nhận. Bạn đã có tài khoản chưa?"
             ]
         },
@@ -237,9 +237,9 @@
                 "Tôi có hẹn với bác sĩ nào?"
             ],
             "responses": [
-                "Để kiểm tra lịch hẹn, tôi cần mã bệnh nhân hoặc bạn vui lòng đăng nhập vào hệ thống HMS để xem chi tiết nhé. Hiện tại tôi chưa thể truy cập trực tiếp dữ liệu lịch hẹn của bạn.",
-                "Bạn có thể xem chi tiết lịch hẹn sắp tới và lịch sử khám trong tài khoản của mình trên website hoặc ứng dụng HMS.",
-                "Vui lòng đăng nhập vào tài khoản HMS để quản lý và xem các lịch hẹn của bạn."
+                "Để kiểm tra lịch hẹn, tôi cần mã bệnh nhân hoặc bạn vui lòng đăng nhập vào hệ thống Healthcare Chatbot để xem chi tiết nhé. Hiện tại tôi chưa thể truy cập trực tiếp dữ liệu lịch hẹn của bạn.",
+                "Bạn có thể xem chi tiết lịch hẹn sắp tới và lịch sử khám trong tài khoản của mình trên website hoặc ứng dụng Healthcare Chatbot.",
+                "Vui lòng đăng nhập vào tài khoản Healthcare Chatbot để quản lý và xem các lịch hẹn của bạn."
             ]
         },
         {
@@ -254,9 +254,9 @@
                 "Quy trình hủy lịch?"
             ],
             "responses": [
-                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản HMS (web/app), vào mục quản lý lịch hẹn và chọn tùy chọn hủy cho lịch hẹn tương ứng. Lưu ý quy định về thời gian hủy tối thiểu nhé.",
-                "Bạn có thể hủy lịch hẹn đã đặt thông qua tài khoản HMS của mình. Hãy kiểm tra chính sách hủy lịch của chúng tôi.",
-                "Vui lòng truy cập hệ thống HMS để thực hiện thao tác hủy lịch hẹn."
+                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot (web/app), vào mục quản lý lịch hẹn và chọn tùy chọn hủy cho lịch hẹn tương ứng. Lưu ý quy định về thời gian hủy tối thiểu nhé.",
+                "Bạn có thể hủy lịch hẹn đã đặt thông qua tài khoản Healthcare Chatbot của mình. Hãy kiểm tra chính sách hủy lịch của chúng tôi.",
+                "Vui lòng truy cập hệ thống Healthcare Chatbot để thực hiện thao tác hủy lịch hẹn."
             ]
         },
         {
@@ -271,7 +271,7 @@
                 "Availability of doctor"
             ],
             "responses": [
-                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của bác sĩ, bạn vui lòng truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng HMS và tìm kiếm theo tên bác sĩ hoặc chuyên khoa nhé.",
+                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của bác sĩ, bạn vui lòng truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng Healthcare Chatbot và tìm kiếm theo tên bác sĩ hoặc chuyên khoa nhé.",
                 "Thông tin lịch làm việc cụ thể của từng bác sĩ được cập nhật trong hệ thống đặt lịch. Mời bạn vào đó để tra cứu."
             ]
         },
@@ -305,7 +305,7 @@
                 "Tìm đường đến"
             ],
             "responses": [
-                "Địa chỉ của chúng tôi là: Số 1 Đại Cồ Việt, Phường Bách Khoa, Quận Hai Bà Trưng, Hà Nội. Bạn có thể tìm trên Google Maps với từ khóa 'Bệnh viện HMS Đại Cồ Việt'.",
+                "Địa chỉ của chúng tôi là: Số 1 Đại Cồ Việt, Phường Bách Khoa, Quận Hai Bà Trưng, Hà Nội. Bạn có thể tìm trên Google Maps với từ khóa 'Bệnh viện Healthcare Chatbot Đại Cồ Việt'.",
                 "Bạn có thể đến địa chỉ Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội. Cần hướng dẫn gì thêm không ạ?"
             ]
         },
@@ -321,7 +321,7 @@
                 "Hotline"
             ],
             "responses": [
-                "Bạn có thể liên hệ với chúng tôi qua số hotline: 1900 1234 hoặc email: info@hms.org.vn.",
+                "Bạn có thể liên hệ với chúng tôi qua số hotline: 1900 1234 hoặc email: info@Healthcare Chatbot.org.vn.",
                 "Số điện thoại tổng đài hỗ trợ là 1900 1234. Chúng tôi luôn sẵn sàng lắng nghe."
             ]
         },
@@ -337,9 +337,9 @@
                 "What specialties?"
             ],
             "responses": [
-                "Chúng tôi cung cấp đa dạng các dịch vụ và chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Nhi khoa, Sản phụ khoa, Xét nghiệm, Chẩn đoán hình ảnh,... Bạn có thể xem danh sách đầy đủ trên website hoặc ứng dụng HMS.",
-                "HMS có nhiều chuyên khoa. Bạn quan tâm đến chuyên khoa cụ thể nào để tôi cung cấp thông tin chi tiết hơn?",
-                "Vui lòng tham khảo danh sách chuyên khoa và dịch vụ trên website chính thức của HMS."
+                "Chúng tôi cung cấp đa dạng các dịch vụ và chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Nhi khoa, Sản phụ khoa, Xét nghiệm, Chẩn đoán hình ảnh,... Bạn có thể xem danh sách đầy đủ trên website hoặc ứng dụng Healthcare Chatbot.",
+                "Healthcare Chatbot có nhiều chuyên khoa. Bạn quan tâm đến chuyên khoa cụ thể nào để tôi cung cấp thông tin chi tiết hơn?",
+                "Vui lòng tham khảo danh sách chuyên khoa và dịch vụ trên website chính thức của Healthcare Chatbot."
             ]
         },
         {
@@ -353,9 +353,9 @@
                 "Check lab results"
             ],
             "responses": [
-                "Để đảm bảo tính bảo mật, bạn vui lòng đăng nhập vào tài khoản HMS của mình trên website hoặc ứng dụng để xem hồ sơ bệnh án, kết quả xét nghiệm và đơn thuốc đã được cấp.",
-                "Bạn có thể truy cập hồ sơ sức khỏe điện tử (EHR) của mình sau khi đăng nhập vào hệ thống HMS.",
-                "Thông tin y tế cá nhân của bạn có sẵn trong tài khoản HMS. Hãy đăng nhập để xem chi tiết."
+                "Để đảm bảo tính bảo mật, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng để xem hồ sơ bệnh án, kết quả xét nghiệm và đơn thuốc đã được cấp.",
+                "Bạn có thể truy cập hồ sơ sức khỏe điện tử (EHR) của mình sau khi đăng nhập vào hệ thống Healthcare Chatbot.",
+                "Thông tin y tế cá nhân của bạn có sẵn trong tài khoản Healthcare Chatbot. Hãy đăng nhập để xem chi tiết."
             ]
         },
         {
@@ -370,9 +370,9 @@
                 "Chi phí khám bệnh"
             ],
             "responses": [
-                "Bạn có thể xem chi tiết hóa đơn viện phí và thực hiện thanh toán trực tuyến thông qua tài khoản HMS của mình trên website hoặc ứng dụng.",
-                "Để xem và thanh toán hóa đơn, vui lòng đăng nhập vào hệ thống HMS và truy cập mục 'Thanh toán'.",
-                "Thông tin chi tiết về chi phí và hóa đơn có trong tài khoản HMS của bạn."
+                "Bạn có thể xem chi tiết hóa đơn viện phí và thực hiện thanh toán trực tuyến thông qua tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng.",
+                "Để xem và thanh toán hóa đơn, vui lòng đăng nhập vào hệ thống Healthcare Chatbot và truy cập mục 'Thanh toán'.",
+                "Thông tin chi tiết về chi phí và hóa đơn có trong tài khoản Healthcare Chatbot của bạn."
             ]
         },
         {
@@ -383,7 +383,7 @@
                 "Bệnh viện có chấp nhận bảo hiểm X không?",
                 "Thủ tục bảo hiểm?",
                 "Insurance information",
-                "Does HMS accept my insurance?"
+                "Does Healthcare Chatbot accept my insurance?"
             ],
             "responses": [
                 "Chúng tôi chấp nhận nhiều loại bảo hiểm y tế. Để biết chi tiết về loại bảo hiểm của bạn có được áp dụng không và thủ tục cụ thể, vui lòng liên hệ bộ phận Chăm sóc khách hàng hoặc bộ phận Thanh toán & Bảo hiểm qua hotline 1900 1234.",
@@ -433,7 +433,7 @@
                 "Chào buổi chiều",
                 "Chào buổi tối",
                 "Có ai ở đó không?",
-                "Xin chào HMS",
+                "Xin chào Healthcare Chatbot",
                 "Chào ad",
                 "Hello bot",
                 "Ê",
@@ -441,9 +441,9 @@
                 "Chào shop"
             ],
             "responses": [
-                "Xin chào! Tôi là trợ lý ảo HMS, tôi có thể giúp gì cho bạn hôm nay?",
+                "Xin chào! Tôi là trợ lý ảo Healthcare Chatbot, tôi có thể giúp gì cho bạn hôm nay?",
                 "Chào bạn, rất vui được hỗ trợ bạn. Bạn cần thông tin gì?",
-                "HMS xin chào! Bạn có câu hỏi nào không?",
+                "Healthcare Chatbot xin chào! Bạn có câu hỏi nào không?",
                 "Xin chào, tôi có thể giúp gì?"
             ]
         },
@@ -580,9 +580,9 @@
                 "Các bước đặt lịch?"
             ],
             "responses": [
-                "Bạn có thể đặt lịch khám trực tuyến dễ dàng qua website hoặc ứng dụng di động của HMS. Quy trình chung là: Đăng nhập -> Tìm và chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ còn trống -> Nhập lý do khám (nếu có) -> Xác nhận.",
-                "Để đặt lịch, vui lòng đăng nhập vào tài khoản HMS của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' hoặc 'Tìm bác sĩ' và làm theo các bước hướng dẫn trên màn hình.",
-                "Bạn cần tài khoản HMS để đặt lịch. Sau khi đăng nhập, hãy tìm đến phần đặt lịch và chọn thông tin phù hợp nhé."
+                "Bạn có thể đặt lịch khám trực tuyến dễ dàng qua website hoặc ứng dụng di động của Healthcare Chatbot. Quy trình chung là: Đăng nhập -> Tìm và chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ còn trống -> Nhập lý do khám (nếu có) -> Xác nhận.",
+                "Để đặt lịch, vui lòng đăng nhập vào tài khoản Healthcare Chatbot của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' hoặc 'Tìm bác sĩ' và làm theo các bước hướng dẫn trên màn hình.",
+                "Bạn cần tài khoản Healthcare Chatbot để đặt lịch. Sau khi đăng nhập, hãy tìm đến phần đặt lịch và chọn thông tin phù hợp nhé."
             ]
         },
         {
@@ -602,9 +602,9 @@
                 "My schedule"
             ],
             "responses": [
-                "Để xem chi tiết lịch hẹn sắp tới và lịch sử khám, bạn vui lòng đăng nhập vào tài khoản HMS của mình trên website hoặc ứng dụng và truy cập mục 'Lịch hẹn của tôi' hoặc 'Hồ sơ sức khỏe'.",
-                "Thông tin lịch hẹn của bạn được quản lý an toàn trong tài khoản HMS. Hãy đăng nhập để xem nhé.",
-                "Do yêu cầu bảo mật, tôi không thể hiển thị trực tiếp lịch hẹn của bạn. Vui lòng đăng nhập vào hệ thống HMS để kiểm tra."
+                "Để xem chi tiết lịch hẹn sắp tới và lịch sử khám, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng và truy cập mục 'Lịch hẹn của tôi' hoặc 'Hồ sơ sức khỏe'.",
+                "Thông tin lịch hẹn của bạn được quản lý an toàn trong tài khoản Healthcare Chatbot. Hãy đăng nhập để xem nhé.",
+                "Do yêu cầu bảo mật, tôi không thể hiển thị trực tiếp lịch hẹn của bạn. Vui lòng đăng nhập vào hệ thống Healthcare Chatbot để kiểm tra."
             ]
         },
         {
@@ -621,9 +621,9 @@
                 "Xóa lịch hẹn"
             ],
             "responses": [
-                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản HMS (web/app), vào mục quản lý lịch hẹn ('Lịch hẹn của tôi') và chọn tùy chọn 'Hủy' cho lịch hẹn tương ứng. Lưu ý các quy định về thời gian được phép hủy nhé.",
-                "Bạn có thể tự hủy lịch hẹn đã đặt thông qua tài khoản HMS của mình. Hãy tìm đến lịch hẹn cần hủy và chọn chức năng hủy.",
-                "Vui lòng truy cập hệ thống HMS, vào phần quản lý lịch hẹn để thực hiện thao tác hủy."
+                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot (web/app), vào mục quản lý lịch hẹn ('Lịch hẹn của tôi') và chọn tùy chọn 'Hủy' cho lịch hẹn tương ứng. Lưu ý các quy định về thời gian được phép hủy nhé.",
+                "Bạn có thể tự hủy lịch hẹn đã đặt thông qua tài khoản Healthcare Chatbot của mình. Hãy tìm đến lịch hẹn cần hủy và chọn chức năng hủy.",
+                "Vui lòng truy cập hệ thống Healthcare Chatbot, vào phần quản lý lịch hẹn để thực hiện thao tác hủy."
             ]
         },
         {
@@ -641,7 +641,7 @@
                 "Bác sĩ C làm việc ngày nào?"
             ],
             "responses": [
-                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của một bác sĩ cụ thể, cách tốt nhất là bạn truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng HMS. Hệ thống sẽ hiển thị lịch khả dụng khi bạn tìm kiếm theo tên bác sĩ hoặc chuyên khoa.",
+                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của một bác sĩ cụ thể, cách tốt nhất là bạn truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng Healthcare Chatbot. Hệ thống sẽ hiển thị lịch khả dụng khi bạn tìm kiếm theo tên bác sĩ hoặc chuyên khoa.",
                 "Thông tin lịch làm việc cụ thể và giờ khám trống của từng bác sĩ được cập nhật liên tục trong hệ thống đặt lịch. Mời bạn vào đó để tra cứu và đặt hẹn.",
                 "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trong mục Đặt lịch để xem lịch trống của họ."
             ]
@@ -660,8 +660,8 @@
                 "Tìm bác sĩ theo bệnh"
             ],
             "responses": [
-                "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trên website hoặc ứng dụng HMS của chúng tôi. Thông tin chi tiết về kinh nghiệm và lịch khám của bác sĩ thường có sẵn ở đó.",
-                "Vui lòng sử dụng chức năng tìm kiếm bác sĩ hoặc đặt lịch hẹn trên hệ thống HMS để xem danh sách bác sĩ theo chuyên khoa bạn quan tâm.",
+                "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trên website hoặc ứng dụng Healthcare Chatbot của chúng tôi. Thông tin chi tiết về kinh nghiệm và lịch khám của bác sĩ thường có sẵn ở đó.",
+                "Vui lòng sử dụng chức năng tìm kiếm bác sĩ hoặc đặt lịch hẹn trên hệ thống Healthcare Chatbot để xem danh sách bác sĩ theo chuyên khoa bạn quan tâm.",
                 "Chúng tôi có đội ngũ bác sĩ giỏi ở nhiều chuyên khoa. Bạn có thể tham khảo danh sách và thông tin bác sĩ trên website/app."
             ]
         },
@@ -677,9 +677,9 @@
                 "What departments do you have?"
             ],
             "responses": [
-                "Chúng tôi có nhiều chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Hô hấp, Thần kinh, Nhi khoa, Sản phụ khoa, Tai Mũi Họng, Mắt, Da liễu, Xét nghiệm, Chẩn đoán hình ảnh, và nhiều chuyên khoa khác. Bạn có thể xem danh sách đầy đủ trên website HMS.",
+                "Chúng tôi có nhiều chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Hô hấp, Thần kinh, Nhi khoa, Sản phụ khoa, Tai Mũi Họng, Mắt, Da liễu, Xét nghiệm, Chẩn đoán hình ảnh, và nhiều chuyên khoa khác. Bạn có thể xem danh sách đầy đủ trên website Healthcare Chatbot.",
                 "Bạn quan tâm đến chuyên khoa cụ thể nào? Tôi có thể kiểm tra xem chúng tôi có chuyên khoa đó không.",
-                "Danh sách các chuyên khoa và dịch vụ được cung cấp chi tiết trên website chính thức của HMS."
+                "Danh sách các chuyên khoa và dịch vụ được cung cấp chi tiết trên website chính thức của Healthcare Chatbot."
             ]
         },
         {
@@ -691,7 +691,7 @@
                 "Bệnh viện làm việc đến mấy giờ?",
                 "Phòng khám mở cửa khi nào?",
                 "Opening hours?",
-                "Giờ hành chính của HMS?",
+                "Giờ hành chính của Healthcare Chatbot?",
                 "Khám ngoài giờ có không?",
                 "Làm việc chủ nhật không?",
                 "Thời gian khám bệnh"
@@ -714,7 +714,7 @@
                 "Chào buổi chiều",
                 "Chào buổi tối",
                 "Có ai ở đó không?",
-                "Xin chào HMS",
+                "Xin chào Healthcare Chatbot",
                 "Chào ad",
                 "Hello bot",
                 "Ê",
@@ -727,9 +727,9 @@
                 "Chào bạn nhé"
             ],
             "responses": [
-                "Xin chào! Tôi là trợ lý ảo HMS, tôi có thể giúp gì cho bạn hôm nay?",
+                "Xin chào! Tôi là trợ lý ảo Healthcare Chatbot, tôi có thể giúp gì cho bạn hôm nay?",
                 "Chào bạn, rất vui được hỗ trợ bạn. Bạn cần thông tin gì?",
-                "HMS xin chào! Bạn có câu hỏi nào không?",
+                "Healthcare Chatbot xin chào! Bạn có câu hỏi nào không?",
                 "Xin chào, tôi đây, bạn cần gì ạ?"
             ]
         },
@@ -894,9 +894,9 @@
                 "Book khám"
             ],
             "responses": [
-                "Bạn có thể đặt lịch khám trực tuyến dễ dàng qua website hoặc ứng dụng di động của HMS. Quy trình chung là: Đăng nhập -> Tìm và chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ còn trống -> Nhập lý do khám (nếu có) -> Xác nhận.",
-                "Để đặt lịch, vui lòng đăng nhập vào tài khoản HMS của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' hoặc 'Tìm bác sĩ' và làm theo các bước hướng dẫn trên màn hình.",
-                "Bạn cần tài khoản HMS để đặt lịch. Sau khi đăng nhập, hãy tìm đến phần đặt lịch và chọn thông tin phù hợp nhé."
+                "Bạn có thể đặt lịch khám trực tuyến dễ dàng qua website hoặc ứng dụng di động của Healthcare Chatbot. Quy trình chung là: Đăng nhập -> Tìm và chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ còn trống -> Nhập lý do khám (nếu có) -> Xác nhận.",
+                "Để đặt lịch, vui lòng đăng nhập vào tài khoản Healthcare Chatbot của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' hoặc 'Tìm bác sĩ' và làm theo các bước hướng dẫn trên màn hình.",
+                "Bạn cần tài khoản Healthcare Chatbot để đặt lịch. Sau khi đăng nhập, hãy tìm đến phần đặt lịch và chọn thông tin phù hợp nhé."
             ]
         },
         {
@@ -920,9 +920,9 @@
                 "Trạng thái lịch hẹn"
             ],
             "responses": [
-                "Để xem chi tiết lịch hẹn sắp tới và lịch sử khám, bạn vui lòng đăng nhập vào tài khoản HMS của mình trên website hoặc ứng dụng và truy cập mục 'Lịch hẹn của tôi' hoặc 'Hồ sơ sức khỏe'.",
-                "Thông tin lịch hẹn của bạn được quản lý an toàn trong tài khoản HMS. Hãy đăng nhập để xem nhé.",
-                "Do yêu cầu bảo mật, tôi không thể hiển thị trực tiếp lịch hẹn của bạn. Vui lòng đăng nhập vào hệ thống HMS để kiểm tra."
+                "Để xem chi tiết lịch hẹn sắp tới và lịch sử khám, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng và truy cập mục 'Lịch hẹn của tôi' hoặc 'Hồ sơ sức khỏe'.",
+                "Thông tin lịch hẹn của bạn được quản lý an toàn trong tài khoản Healthcare Chatbot. Hãy đăng nhập để xem nhé.",
+                "Do yêu cầu bảo mật, tôi không thể hiển thị trực tiếp lịch hẹn của bạn. Vui lòng đăng nhập vào hệ thống Healthcare Chatbot để kiểm tra."
             ]
         },
         {
@@ -944,9 +944,9 @@
                 "Thay đổi lịch, muốn hủy"
             ],
             "responses": [
-                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản HMS (web/app), vào mục quản lý lịch hẹn ('Lịch hẹn của tôi') và chọn tùy chọn 'Hủy' cho lịch hẹn tương ứng. Lưu ý các quy định về thời gian được phép hủy nhé.",
-                "Bạn có thể tự hủy lịch hẹn đã đặt thông qua tài khoản HMS của mình. Hãy tìm đến lịch hẹn cần hủy và chọn chức năng hủy.",
-                "Vui lòng truy cập hệ thống HMS, vào phần quản lý lịch hẹn để thực hiện thao tác hủy."
+                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot (web/app), vào mục quản lý lịch hẹn ('Lịch hẹn của tôi') và chọn tùy chọn 'Hủy' cho lịch hẹn tương ứng. Lưu ý các quy định về thời gian được phép hủy nhé.",
+                "Bạn có thể tự hủy lịch hẹn đã đặt thông qua tài khoản Healthcare Chatbot của mình. Hãy tìm đến lịch hẹn cần hủy và chọn chức năng hủy.",
+                "Vui lòng truy cập hệ thống Healthcare Chatbot, vào phần quản lý lịch hẹn để thực hiện thao tác hủy."
             ]
         },
         {
@@ -968,7 +968,7 @@
                 "Check doctor availability"
             ],
             "responses": [
-                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của một bác sĩ cụ thể, cách tốt nhất là bạn truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng HMS. Hệ thống sẽ hiển thị lịch khả dụng khi bạn tìm kiếm theo tên bác sĩ hoặc chuyên khoa.",
+                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của một bác sĩ cụ thể, cách tốt nhất là bạn truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng Healthcare Chatbot. Hệ thống sẽ hiển thị lịch khả dụng khi bạn tìm kiếm theo tên bác sĩ hoặc chuyên khoa.",
                 "Thông tin lịch làm việc cụ thể và giờ khám trống của từng bác sĩ được cập nhật liên tục trong hệ thống đặt lịch. Mời bạn vào đó để tra cứu và đặt hẹn.",
                 "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trong mục Đặt lịch để xem lịch trống của họ."
             ]
@@ -992,8 +992,8 @@
                 "Recommend a pediatrician"
             ],
             "responses": [
-                "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trên website hoặc ứng dụng HMS của chúng tôi. Thông tin chi tiết về kinh nghiệm và lịch khám của bác sĩ thường có sẵn ở đó.",
-                "Vui lòng sử dụng chức năng tìm kiếm bác sĩ hoặc đặt lịch hẹn trên hệ thống HMS để xem danh sách bác sĩ theo chuyên khoa bạn quan tâm.",
+                "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trên website hoặc ứng dụng Healthcare Chatbot của chúng tôi. Thông tin chi tiết về kinh nghiệm và lịch khám của bác sĩ thường có sẵn ở đó.",
+                "Vui lòng sử dụng chức năng tìm kiếm bác sĩ hoặc đặt lịch hẹn trên hệ thống Healthcare Chatbot để xem danh sách bác sĩ theo chuyên khoa bạn quan tâm.",
                 "Chúng tôi có đội ngũ bác sĩ giỏi ở nhiều chuyên khoa. Bạn có thể tham khảo danh sách và thông tin bác sĩ trên website/app. Bạn đang tìm bác sĩ chuyên khoa nào?"
             ]
         },
@@ -1009,14 +1009,14 @@
                 "What departments do you have?",
                 "Các dịch vụ y tế?",
                 "Khoa khám bệnh?",
-                "Chuyên khoa của HMS?",
+                "Chuyên khoa của Healthcare Chatbot?",
                 "Có khám tâm lý không?",
                 "Khám tổng quát ở đâu?"
             ],
             "responses": [
-                "Chúng tôi có nhiều chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Hô hấp, Thần kinh, Nhi khoa, Sản phụ khoa, Tai Mũi Họng, Mắt, Da liễu, Cơ xương khớp, Ung bướu, Xét nghiệm, Chẩn đoán hình ảnh, và nhiều chuyên khoa khác. Bạn có thể xem danh sách đầy đủ trên website HMS.",
+                "Chúng tôi có nhiều chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Hô hấp, Thần kinh, Nhi khoa, Sản phụ khoa, Tai Mũi Họng, Mắt, Da liễu, Cơ xương khớp, Ung bướu, Xét nghiệm, Chẩn đoán hình ảnh, và nhiều chuyên khoa khác. Bạn có thể xem danh sách đầy đủ trên website Healthcare Chatbot.",
                 "Bạn quan tâm đến chuyên khoa cụ thể nào? Tôi có thể kiểm tra xem chúng tôi có chuyên khoa đó không.",
-                "Danh sách các chuyên khoa và dịch vụ được cung cấp chi tiết trên website chính thức của HMS. Bạn cần thông tin về khoa nào ạ?"
+                "Danh sách các chuyên khoa và dịch vụ được cung cấp chi tiết trên website chính thức của Healthcare Chatbot. Bạn cần thông tin về khoa nào ạ?"
             ]
         },
         {
@@ -1028,7 +1028,7 @@
                 "Bệnh viện làm việc đến mấy giờ?",
                 "Phòng khám mở cửa khi nào?",
                 "Opening hours?",
-                "Giờ hành chính của HMS?",
+                "Giờ hành chính của Healthcare Chatbot?",
                 "Khám ngoài giờ có không?",
                 "Làm việc chủ nhật không?",
                 "Thời gian khám bệnh?",
@@ -1052,16 +1052,16 @@
                 "Location?",
                 "Where is the hospital located?",
                 "Địa chỉ cụ thể là gì?",
-                "Tìm đường đến HMS",
+                "Tìm đường đến Healthcare Chatbot",
                 "Vị trí bệnh viện",
                 "Chỗ nào vậy?",
                 "Địa điểm khám bệnh?",
-                "HMS ở đâu?",
+                "Healthcare Chatbot ở đâu?",
                 "Cho tôi địa chỉ",
                 "Vị trí?"
             ],
             "responses": [
-                "Địa chỉ của chúng tôi là: Số 1 Đại Cồ Việt, Phường Bách Khoa, Quận Hai Bà Trưng, Hà Nội. Bạn có thể tìm trên Google Maps với từ khóa 'Bệnh viện HMS Đại Cồ Việt'.",
+                "Địa chỉ của chúng tôi là: Số 1 Đại Cồ Việt, Phường Bách Khoa, Quận Hai Bà Trưng, Hà Nội. Bạn có thể tìm trên Google Maps với từ khóa 'Bệnh viện Healthcare Chatbot Đại Cồ Việt'.",
                 "Bạn có thể đến địa chỉ Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội. Cần hướng dẫn gì thêm về đường đi không ạ?",
                 "Chúng tôi đặt tại Số 1 Đại Cồ Việt, Hà Nội."
             ]
@@ -1075,7 +1075,7 @@
                 "Contact information",
                 "Cần số tổng đài hỗ trợ",
                 "Email liên hệ là gì?",
-                "Hotline của HMS?",
+                "Hotline của Healthcare Chatbot?",
                 "Cách liên lạc?",
                 "Xin số điện thoại",
                 "Số điện thoại bệnh viện?",
@@ -1083,9 +1083,9 @@
                 "Gọi ai bây giờ?"
             ],
             "responses": [
-                "Bạn có thể liên hệ với chúng tôi qua số hotline: 1900 1234 hoặc gửi email đến địa chỉ: info@hms.org.vn.",
+                "Bạn có thể liên hệ với chúng tôi qua số hotline: 1900 1234 hoặc gửi email đến địa chỉ: info@Healthcare Chatbot.org.vn.",
                 "Số điện thoại tổng đài hỗ trợ 24/7 là 1900 1234. Chúng tôi luôn sẵn sàng lắng nghe và giải đáp thắc mắc của bạn.",
-                "Để liên hệ, vui lòng gọi 1900 1234 hoặc email info@hms.org.vn."
+                "Để liên hệ, vui lòng gọi 1900 1234 hoặc email info@Healthcare Chatbot.org.vn."
             ]
         },
         {
@@ -1106,9 +1106,9 @@
                 "Đơn thuốc cũ"
             ],
             "responses": [
-                "Để đảm bảo tính bảo mật và riêng tư cho thông tin sức khỏe của bạn, vui lòng đăng nhập vào tài khoản HMS của mình trên website hoặc ứng dụng di động. Tại đó bạn có thể truy cập Hồ sơ sức khỏe điện tử (EHR) để xem lịch sử khám, kết quả xét nghiệm và đơn thuốc.",
-                "Bạn có thể truy cập toàn bộ hồ sơ sức khỏe điện tử (EHR) của mình sau khi đăng nhập an toàn vào hệ thống HMS qua web hoặc app.",
-                "Thông tin y tế cá nhân như kết quả xét nghiệm, đơn thuốc được lưu trữ an toàn trong tài khoản HMS của bạn. Hãy đăng nhập để xem chi tiết nhé."
+                "Để đảm bảo tính bảo mật và riêng tư cho thông tin sức khỏe của bạn, vui lòng đăng nhập vào tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng di động. Tại đó bạn có thể truy cập Hồ sơ sức khỏe điện tử (EHR) để xem lịch sử khám, kết quả xét nghiệm và đơn thuốc.",
+                "Bạn có thể truy cập toàn bộ hồ sơ sức khỏe điện tử (EHR) của mình sau khi đăng nhập an toàn vào hệ thống Healthcare Chatbot qua web hoặc app.",
+                "Thông tin y tế cá nhân như kết quả xét nghiệm, đơn thuốc được lưu trữ an toàn trong tài khoản Healthcare Chatbot của bạn. Hãy đăng nhập để xem chi tiết nhé."
             ]
         },
         {
@@ -1126,9 +1126,9 @@
                 "Chi tiết đơn thuốc"
             ],
             "responses": [
-                "Bạn có thể xem chi tiết đơn thuốc đã được bác sĩ kê trong tài khoản HMS của mình sau khi đăng nhập, thường nằm trong phần Hồ sơ sức khỏe hoặc Lịch sử khám.",
-                "Đơn thuốc điện tử của bạn có sẵn trong hệ thống HMS. Vui lòng đăng nhập để xem và có thể tải về nếu cần.",
-                "Để xem lại đơn thuốc, hãy truy cập tài khoản HMS của bạn nhé. Thông tin chi tiết về liều lượng và cách dùng sẽ có ở đó."
+                "Bạn có thể xem chi tiết đơn thuốc đã được bác sĩ kê trong tài khoản Healthcare Chatbot của mình sau khi đăng nhập, thường nằm trong phần Hồ sơ sức khỏe hoặc Lịch sử khám.",
+                "Đơn thuốc điện tử của bạn có sẵn trong hệ thống Healthcare Chatbot. Vui lòng đăng nhập để xem và có thể tải về nếu cần.",
+                "Để xem lại đơn thuốc, hãy truy cập tài khoản Healthcare Chatbot của bạn nhé. Thông tin chi tiết về liều lượng và cách dùng sẽ có ở đó."
             ]
         },
         {
@@ -1147,8 +1147,8 @@
                 "Xét nghiệm cần nhịn ăn không?"
             ],
             "responses": [
-                "Kết quả xét nghiệm thường sẽ có sau khoảng thời gian nhất định tùy loại xét nghiệm. Ngay khi có kết quả, chúng tôi sẽ cập nhật vào Hồ sơ sức khỏe điện tử của bạn trên hệ thống HMS và có thể gửi thông báo cho bạn. Vui lòng đăng nhập để kiểm tra.",
-                "Để xem kết quả xét nghiệm, bạn hãy đăng nhập vào tài khoản HMS. Kết quả sẽ hiển thị trong phần Hồ sơ sức khỏe hoặc mục Kết quả xét nghiệm.",
+                "Kết quả xét nghiệm thường sẽ có sau khoảng thời gian nhất định tùy loại xét nghiệm. Ngay khi có kết quả, chúng tôi sẽ cập nhật vào Hồ sơ sức khỏe điện tử của bạn trên hệ thống Healthcare Chatbot và có thể gửi thông báo cho bạn. Vui lòng đăng nhập để kiểm tra.",
+                "Để xem kết quả xét nghiệm, bạn hãy đăng nhập vào tài khoản Healthcare Chatbot. Kết quả sẽ hiển thị trong phần Hồ sơ sức khỏe hoặc mục Kết quả xét nghiệm.",
                 "Việc chuẩn bị trước khi xét nghiệm (ví dụ: nhịn ăn, uống nhiều nước) tùy thuộc vào loại xét nghiệm bác sĩ yêu cầu. Vui lòng kiểm tra lại chỉ định của bác sĩ hoặc liên hệ phòng xét nghiệm qua hotline 1900 1234 để được hướng dẫn chi tiết."
             ]
         },
@@ -1161,11 +1161,11 @@
                 "Mua thuốc theo đơn ở đâu?",
                 "Pharmacy location inside hospital",
                 "Pharmacy hours",
-                "Tìm nhà thuốc HMS",
+                "Tìm nhà thuốc Healthcare Chatbot",
                 "Quầy thuốc mở cửa đến mấy giờ?"
             ],
             "responses": [
-                "Nhà thuốc của HMS nằm tại tầng 1, khu A, gần cổng chính. Giờ làm việc của nhà thuốc trùng với giờ làm việc của bệnh viện (7h-17h, T2-T7).",
+                "Nhà thuốc của Healthcare Chatbot nằm tại tầng 1, khu A, gần cổng chính. Giờ làm việc của nhà thuốc trùng với giờ làm việc của bệnh viện (7h-17h, T2-T7).",
                 "Bạn có thể đến nhà thuốc ở tầng 1, khu A để mua thuốc theo đơn hoặc các loại thuốc không kê đơn khác.",
                 "Nhà thuốc hoạt động từ 7:00 đến 17:00, thứ Hai đến thứ Bảy."
             ]
@@ -1207,9 +1207,9 @@
                 "Tôi nợ bao nhiêu?"
             ],
             "responses": [
-                "Bạn có thể xem chi tiết hóa đơn viện phí và thực hiện thanh toán trực tuyến một cách tiện lợi thông qua tài khoản HMS của mình trên website hoặc ứng dụng di động. Hãy truy cập mục 'Thanh toán' hoặc 'Hóa đơn'.",
-                "Để xem và thanh toán hóa đơn, vui lòng đăng nhập vào hệ thống HMS và truy cập mục 'Thanh toán'. Chúng tôi hỗ trợ nhiều hình thức thanh toán.",
-                "Thông tin chi tiết về chi phí, hóa đơn và các phương thức thanh toán có sẵn trong tài khoản HMS của bạn."
+                "Bạn có thể xem chi tiết hóa đơn viện phí và thực hiện thanh toán trực tuyến một cách tiện lợi thông qua tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng di động. Hãy truy cập mục 'Thanh toán' hoặc 'Hóa đơn'.",
+                "Để xem và thanh toán hóa đơn, vui lòng đăng nhập vào hệ thống Healthcare Chatbot và truy cập mục 'Thanh toán'. Chúng tôi hỗ trợ nhiều hình thức thanh toán.",
+                "Thông tin chi tiết về chi phí, hóa đơn và các phương thức thanh toán có sẵn trong tài khoản Healthcare Chatbot của bạn."
             ]
         },
         {
@@ -1227,9 +1227,9 @@
                 "Các loại thẻ chấp nhận?"
             ],
             "responses": [
-                "Chúng tôi chấp nhận nhiều hình thức thanh toán bao gồm: Tiền mặt tại quầy, Thẻ ngân hàng (ATM nội địa, Visa, Master Card), Chuyển khoản ngân hàng, và Thanh toán trực tuyến qua cổng thanh toán an toàn tích hợp trên website/ứng dụng HMS.",
-                "Bạn có thể thanh toán bằng tiền mặt, quẹt thẻ hoặc thanh toán online tiện lợi qua hệ thống HMS. Chúng tôi chưa hỗ trợ trả góp trực tiếp.",
-                "Các hình thức thanh toán được chấp nhận bao gồm: Tiền mặt, Thẻ ngân hàng, Chuyển khoản, Thanh toán online qua HMS."
+                "Chúng tôi chấp nhận nhiều hình thức thanh toán bao gồm: Tiền mặt tại quầy, Thẻ ngân hàng (ATM nội địa, Visa, Master Card), Chuyển khoản ngân hàng, và Thanh toán trực tuyến qua cổng thanh toán an toàn tích hợp trên website/ứng dụng Healthcare Chatbot.",
+                "Bạn có thể thanh toán bằng tiền mặt, quẹt thẻ hoặc thanh toán online tiện lợi qua hệ thống Healthcare Chatbot. Chúng tôi chưa hỗ trợ trả góp trực tiếp.",
+                "Các hình thức thanh toán được chấp nhận bao gồm: Tiền mặt, Thẻ ngân hàng, Chuyển khoản, Thanh toán online qua Healthcare Chatbot."
             ]
         },
         {
@@ -1240,7 +1240,7 @@
                 "Bệnh viện có chấp nhận bảo hiểm Prudential không?",
                 "Thủ tục bảo hiểm y tế?",
                 "Insurance information",
-                "Does HMS accept my insurance provider?",
+                "Does Healthcare Chatbot accept my insurance provider?",
                 "Bảo lãnh viện phí trực tiếp?",
                 "Chi trả bảo hiểm như nào?",
                 "Hỏi về bảo hiểm sức khỏe",
@@ -1283,7 +1283,7 @@
             "patterns": [
                 "Quên mật khẩu rồi",
                 "Làm sao lấy lại mật khẩu?",
-                "Reset password HMS",
+                "Reset password Healthcare Chatbot",
                 "Tôi không nhớ mật khẩu đăng nhập",
                 "Forgot my password",
                 "Đặt lại mật khẩu tài khoản",
@@ -1293,7 +1293,7 @@
                 "Lấy lại pass"
             ],
             "responses": [
-                "Bạn có thể đặt lại mật khẩu bằng cách nhấp vào liên kết 'Quên mật khẩu?' trên màn hình đăng nhập của website hoặc ứng dụng HMS. Hệ thống sẽ gửi hướng dẫn các bước tiếp theo qua email hoặc số điện thoại bạn đã đăng ký với tài khoản.",
+                "Bạn có thể đặt lại mật khẩu bằng cách nhấp vào liên kết 'Quên mật khẩu?' trên màn hình đăng nhập của website hoặc ứng dụng Healthcare Chatbot. Hệ thống sẽ gửi hướng dẫn các bước tiếp theo qua email hoặc số điện thoại bạn đã đăng ký với tài khoản.",
                 "Vui lòng sử dụng chức năng 'Quên mật khẩu' tại trang đăng nhập để bắt đầu quá trình khôi phục mật khẩu của bạn."
             ]
         },
@@ -1311,8 +1311,8 @@
                 "Update contact info"
             ],
             "responses": [
-                "Bạn có thể cập nhật thông tin cá nhân như số điện thoại, địa chỉ, email,... bằng cách đăng nhập vào tài khoản HMS của mình và truy cập mục 'Thông tin tài khoản' hoặc 'Hồ sơ cá nhân'.",
-                "Để chỉnh sửa thông tin, vui lòng đăng nhập vào hệ thống HMS và tìm đến phần quản lý tài khoản/hồ sơ của bạn."
+                "Bạn có thể cập nhật thông tin cá nhân như số điện thoại, địa chỉ, email,... bằng cách đăng nhập vào tài khoản Healthcare Chatbot của mình và truy cập mục 'Thông tin tài khoản' hoặc 'Hồ sơ cá nhân'.",
+                "Để chỉnh sửa thông tin, vui lòng đăng nhập vào hệ thống Healthcare Chatbot và tìm đến phần quản lý tài khoản/hồ sơ của bạn."
             ]
         },
         {
@@ -1343,9 +1343,9 @@
                 "Có phải người đang trả lời không?"
             ],
             "responses": [
-                "Đúng vậy, tôi là một trợ lý ảo AI (chatbot) được tạo ra để hỗ trợ bạn các thông tin về HMS.",
+                "Đúng vậy, tôi là một trợ lý ảo AI (chatbot) được tạo ra để hỗ trợ bạn các thông tin về Healthcare Chatbot.",
                 "Tôi là một chương trình máy tính, được thiết kế để cung cấp thông tin và hỗ trợ bạn một cách nhanh chóng.",
-                "Bạn đang tương tác với một chatbot AI của Hệ thống Quản lý Chăm sóc Sức khỏe HMS."
+                "Bạn đang tương tác với một chatbot AI của Hệ thống Quản lý Chăm sóc Sức khỏe Healthcare Chatbot."
             ]
         },
         {
@@ -1375,7 +1375,7 @@
                 "Xin lỗi, tôi chưa hiểu rõ câu hỏi của bạn lắm. Bạn có thể diễn đạt lại bằng cách khác hoặc hỏi về các chủ đề như đặt lịch, giờ làm việc, địa chỉ được không?",
                 "Tôi vẫn đang trong quá trình học hỏi và chưa thể xử lý yêu cầu này. Bạn có thể thử hỏi lại đơn giản hơn không?",
                 "Hmm, yêu cầu này có vẻ nằm ngoài khả năng hiện tại của tôi. Tôi có thể giúp bạn về thông tin dịch vụ hoặc đặt hẹn.",
-                "Rất tiếc, tôi chưa được lập trình để trả lời câu hỏi này. Bạn có thể cung cấp thêm chi tiết hoặc hỏi về vấn đề khác liên quan đến dịch vụ y tế của HMS không?",
+                "Rất tiếc, tôi chưa được lập trình để trả lời câu hỏi này. Bạn có thể cung cấp thêm chi tiết hoặc hỏi về vấn đề khác liên quan đến dịch vụ y tế của Healthcare Chatbot không?",
                 "Tôi không chắc lắm về điều đó. Bạn có muốn tôi giúp tìm thông tin về các chuyên khoa hoặc giờ làm việc không?"
             ]
         },
@@ -1391,7 +1391,7 @@
                 "Chào buổi chiều",
                 "Chào buổi tối",
                 "Có ai ở đó không?",
-                "Xin chào HMS",
+                "Xin chào Healthcare Chatbot",
                 "Chào ad",
                 "Hello bot",
                 "Ê",
@@ -1406,9 +1406,9 @@
                 "Chào bs"
             ],
             "responses": [
-                "Xin chào! Tôi là trợ lý ảo HMS, tôi có thể giúp gì cho bạn hôm nay?",
+                "Xin chào! Tôi là trợ lý ảo Healthcare Chatbot, tôi có thể giúp gì cho bạn hôm nay?",
                 "Chào bạn, rất vui được hỗ trợ bạn. Bạn cần thông tin gì?",
-                "HMS xin chào! Bạn có câu hỏi nào không?",
+                "Healthcare Chatbot xin chào! Bạn có câu hỏi nào không?",
                 "Xin chào, tôi đây, bạn cần gì ạ?"
             ]
         },
@@ -1585,9 +1585,9 @@
                 "Đặt lịch gặp bác sĩ"
             ],
             "responses": [
-                "Bạn có thể đặt lịch khám trực tuyến dễ dàng qua website hoặc ứng dụng di động của HMS. Quy trình chung là: Đăng nhập -> Tìm và chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ còn trống -> Nhập lý do khám (nếu có) -> Xác nhận.",
-                "Để đặt lịch, vui lòng đăng nhập vào tài khoản HMS của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' hoặc 'Tìm bác sĩ' và làm theo các bước hướng dẫn trên màn hình.",
-                "Bạn cần tài khoản HMS để đặt lịch. Sau khi đăng nhập, hãy tìm đến phần đặt lịch và chọn thông tin phù hợp nhé."
+                "Bạn có thể đặt lịch khám trực tuyến dễ dàng qua website hoặc ứng dụng di động của Healthcare Chatbot. Quy trình chung là: Đăng nhập -> Tìm và chọn Chuyên khoa/Bác sĩ -> Chọn Ngày/Giờ còn trống -> Nhập lý do khám (nếu có) -> Xác nhận.",
+                "Để đặt lịch, vui lòng đăng nhập vào tài khoản Healthcare Chatbot của bạn trên web hoặc app, chọn mục 'Đặt lịch hẹn' hoặc 'Tìm bác sĩ' và làm theo các bước hướng dẫn trên màn hình.",
+                "Bạn cần tài khoản Healthcare Chatbot để đặt lịch. Sau khi đăng nhập, hãy tìm đến phần đặt lịch và chọn thông tin phù hợp nhé."
             ]
         },
         {
@@ -1613,9 +1613,9 @@
                 "Lịch hẹn hôm nay"
             ],
             "responses": [
-                "Để xem chi tiết lịch hẹn sắp tới và lịch sử khám, bạn vui lòng đăng nhập vào tài khoản HMS của mình trên website hoặc ứng dụng và truy cập mục 'Lịch hẹn của tôi' hoặc 'Hồ sơ sức khỏe'.",
-                "Thông tin lịch hẹn của bạn được quản lý an toàn trong tài khoản HMS. Hãy đăng nhập để xem nhé.",
-                "Do yêu cầu bảo mật, tôi không thể hiển thị trực tiếp lịch hẹn của bạn. Vui lòng đăng nhập vào hệ thống HMS để kiểm tra."
+                "Để xem chi tiết lịch hẹn sắp tới và lịch sử khám, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng và truy cập mục 'Lịch hẹn của tôi' hoặc 'Hồ sơ sức khỏe'.",
+                "Thông tin lịch hẹn của bạn được quản lý an toàn trong tài khoản Healthcare Chatbot. Hãy đăng nhập để xem nhé.",
+                "Do yêu cầu bảo mật, tôi không thể hiển thị trực tiếp lịch hẹn của bạn. Vui lòng đăng nhập vào hệ thống Healthcare Chatbot để kiểm tra."
             ]
         },
         {
@@ -1639,9 +1639,9 @@
                 "Đổi lịch hẹn"
             ],
             "responses": [
-                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản HMS (web/app), vào mục quản lý lịch hẹn ('Lịch hẹn của tôi') và chọn tùy chọn 'Hủy' cho lịch hẹn tương ứng. Lưu ý các quy định về thời gian được phép hủy nhé.",
-                "Bạn có thể tự hủy lịch hẹn đã đặt thông qua tài khoản HMS của mình. Hãy tìm đến lịch hẹn cần hủy và chọn chức năng hủy.",
-                "Vui lòng truy cập hệ thống HMS, vào phần quản lý lịch hẹn để thực hiện thao tác hủy hoặc thay đổi lịch (nếu hệ thống hỗ trợ)."
+                "Để hủy lịch hẹn, bạn vui lòng đăng nhập vào tài khoản Healthcare Chatbot (web/app), vào mục quản lý lịch hẹn ('Lịch hẹn của tôi') và chọn tùy chọn 'Hủy' cho lịch hẹn tương ứng. Lưu ý các quy định về thời gian được phép hủy nhé.",
+                "Bạn có thể tự hủy lịch hẹn đã đặt thông qua tài khoản Healthcare Chatbot của mình. Hãy tìm đến lịch hẹn cần hủy và chọn chức năng hủy.",
+                "Vui lòng truy cập hệ thống Healthcare Chatbot, vào phần quản lý lịch hẹn để thực hiện thao tác hủy hoặc thay đổi lịch (nếu hệ thống hỗ trợ)."
             ]
         },
         {
@@ -1665,7 +1665,7 @@
                 "Lịch khám của bs X"
             ],
             "responses": [
-                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của một bác sĩ cụ thể, cách tốt nhất là bạn truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng HMS. Hệ thống sẽ hiển thị lịch khả dụng khi bạn tìm kiếm theo tên bác sĩ hoặc chuyên khoa.",
+                "Để xem lịch làm việc chi tiết và các khung giờ còn trống của một bác sĩ cụ thể, cách tốt nhất là bạn truy cập chức năng 'Đặt lịch hẹn' trên website hoặc ứng dụng Healthcare Chatbot. Hệ thống sẽ hiển thị lịch khả dụng khi bạn tìm kiếm theo tên bác sĩ hoặc chuyên khoa.",
                 "Thông tin lịch làm việc cụ thể và giờ khám trống của từng bác sĩ được cập nhật liên tục trong hệ thống đặt lịch. Mời bạn vào đó để tra cứu và đặt hẹn.",
                 "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trong mục Đặt lịch để xem lịch trống của họ."
             ]
@@ -1691,8 +1691,8 @@
                 "Tìm bs chuyên môn cao"
             ],
             "responses": [
-                "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trên website hoặc ứng dụng HMS của chúng tôi. Thông tin chi tiết về kinh nghiệm và lịch khám của bác sĩ thường có sẵn ở đó.",
-                "Vui lòng sử dụng chức năng tìm kiếm bác sĩ hoặc đặt lịch hẹn trên hệ thống HMS để xem danh sách bác sĩ theo chuyên khoa bạn quan tâm.",
+                "Bạn có thể tìm kiếm bác sĩ theo tên hoặc chuyên khoa trên website hoặc ứng dụng Healthcare Chatbot của chúng tôi. Thông tin chi tiết về kinh nghiệm và lịch khám của bác sĩ thường có sẵn ở đó.",
+                "Vui lòng sử dụng chức năng tìm kiếm bác sĩ hoặc đặt lịch hẹn trên hệ thống Healthcare Chatbot để xem danh sách bác sĩ theo chuyên khoa bạn quan tâm.",
                 "Chúng tôi có đội ngũ bác sĩ giỏi ở nhiều chuyên khoa. Bạn có thể tham khảo danh sách và thông tin bác sĩ trên website/app. Bạn đang tìm bác sĩ chuyên khoa nào ạ?"
             ]
         },
@@ -1708,7 +1708,7 @@
                 "What departments do you have?",
                 "Các dịch vụ y tế?",
                 "Khoa khám bệnh?",
-                "Chuyên khoa của HMS?",
+                "Chuyên khoa của Healthcare Chatbot?",
                 "Có khám tâm lý không?",
                 "Khám tổng quát ở đâu?",
                 "Khoa tim mạch?",
@@ -1716,9 +1716,9 @@
                 "Các khoa phòng?"
             ],
             "responses": [
-                "Chúng tôi có nhiều chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Hô hấp, Thần kinh, Nhi khoa, Sản phụ khoa, Tai Mũi Họng, Mắt, Da liễu, Cơ xương khớp, Ung bướu, Xét nghiệm, Chẩn đoán hình ảnh, và nhiều chuyên khoa khác. Bạn có thể xem danh sách đầy đủ trên website HMS.",
+                "Chúng tôi có nhiều chuyên khoa như: Tim mạch, Nội tiết, Tiêu hóa, Hô hấp, Thần kinh, Nhi khoa, Sản phụ khoa, Tai Mũi Họng, Mắt, Da liễu, Cơ xương khớp, Ung bướu, Xét nghiệm, Chẩn đoán hình ảnh, và nhiều chuyên khoa khác. Bạn có thể xem danh sách đầy đủ trên website Healthcare Chatbot.",
                 "Bạn quan tâm đến chuyên khoa cụ thể nào? Tôi có thể kiểm tra xem chúng tôi có chuyên khoa đó không.",
-                "Danh sách các chuyên khoa và dịch vụ được cung cấp chi tiết trên website chính thức của HMS. Bạn cần thông tin về khoa nào ạ?"
+                "Danh sách các chuyên khoa và dịch vụ được cung cấp chi tiết trên website chính thức của Healthcare Chatbot. Bạn cần thông tin về khoa nào ạ?"
             ]
         },
         {
@@ -1730,7 +1730,7 @@
                 "Bệnh viện làm việc đến mấy giờ?",
                 "Phòng khám mở cửa khi nào?",
                 "Opening hours?",
-                "Giờ hành chính của HMS?",
+                "Giờ hành chính của Healthcare Chatbot?",
                 "Khám ngoài giờ có không?",
                 "Làm việc chủ nhật không?",
                 "Thời gian khám bệnh?",
@@ -1756,18 +1756,18 @@
                 "Location?",
                 "Where is the hospital located?",
                 "Địa chỉ cụ thể là gì?",
-                "Tìm đường đến HMS",
+                "Tìm đường đến Healthcare Chatbot",
                 "Vị trí bệnh viện",
                 "Chỗ nào vậy?",
                 "Địa điểm khám bệnh?",
-                "HMS ở đâu?",
+                "Healthcare Chatbot ở đâu?",
                 "Cho tôi địa chỉ",
                 "Vị trí?",
                 "BV nằm ở đâu?",
                 "Chỉ đường"
             ],
             "responses": [
-                "Địa chỉ của chúng tôi là: Số 1 Đại Cồ Việt, Phường Bách Khoa, Quận Hai Bà Trưng, Hà Nội. Bạn có thể tìm trên Google Maps với từ khóa 'Bệnh viện HMS Đại Cồ Việt'.",
+                "Địa chỉ của chúng tôi là: Số 1 Đại Cồ Việt, Phường Bách Khoa, Quận Hai Bà Trưng, Hà Nội. Bạn có thể tìm trên Google Maps với từ khóa 'Bệnh viện Healthcare Chatbot Đại Cồ Việt'.",
                 "Bạn có thể đến địa chỉ Số 1 Đại Cồ Việt, Hai Bà Trưng, Hà Nội. Cần hướng dẫn gì thêm về đường đi không ạ?",
                 "Chúng tôi đặt tại Số 1 Đại Cồ Việt, Hà Nội."
             ]
@@ -1781,7 +1781,7 @@
                 "Contact information",
                 "Cần số tổng đài hỗ trợ",
                 "Email liên hệ là gì?",
-                "Hotline của HMS?",
+                "Hotline của Healthcare Chatbot?",
                 "Cách liên lạc?",
                 "Xin số điện thoại",
                 "Số điện thoại bệnh viện?",
@@ -1791,9 +1791,9 @@
                 "Email hỗ trợ"
             ],
             "responses": [
-                "Bạn có thể liên hệ với chúng tôi qua số hotline: 1900 1234 hoặc gửi email đến địa chỉ: info@hms.org.vn.",
+                "Bạn có thể liên hệ với chúng tôi qua số hotline: 1900 1234 hoặc gửi email đến địa chỉ: info@Healthcare Chatbot.org.vn.",
                 "Số điện thoại tổng đài hỗ trợ 24/7 là 1900 1234. Chúng tôi luôn sẵn sàng lắng nghe và giải đáp thắc mắc của bạn.",
-                "Để liên hệ, vui lòng gọi 1900 1234 hoặc email info@hms.org.vn."
+                "Để liên hệ, vui lòng gọi 1900 1234 hoặc email info@Healthcare Chatbot.org.vn."
             ]
         },
         {
@@ -1817,9 +1817,9 @@
                 "My health records"
             ],
             "responses": [
-                "Để đảm bảo tính bảo mật và riêng tư cho thông tin sức khỏe của bạn, vui lòng đăng nhập vào tài khoản HMS của mình trên website hoặc ứng dụng di động. Tại đó bạn có thể truy cập Hồ sơ sức khỏe điện tử (EHR) để xem lịch sử khám, kết quả xét nghiệm và đơn thuốc.",
-                "Bạn có thể truy cập toàn bộ hồ sơ sức khỏe điện tử (EHR) của mình sau khi đăng nhập an toàn vào hệ thống HMS qua web hoặc app.",
-                "Thông tin y tế cá nhân như kết quả xét nghiệm, đơn thuốc được lưu trữ an toàn trong tài khoản HMS của bạn. Hãy đăng nhập để xem chi tiết nhé."
+                "Để đảm bảo tính bảo mật và riêng tư cho thông tin sức khỏe của bạn, vui lòng đăng nhập vào tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng di động. Tại đó bạn có thể truy cập Hồ sơ sức khỏe điện tử (EHR) để xem lịch sử khám, kết quả xét nghiệm và đơn thuốc.",
+                "Bạn có thể truy cập toàn bộ hồ sơ sức khỏe điện tử (EHR) của mình sau khi đăng nhập an toàn vào hệ thống Healthcare Chatbot qua web hoặc app.",
+                "Thông tin y tế cá nhân như kết quả xét nghiệm, đơn thuốc được lưu trữ an toàn trong tài khoản Healthcare Chatbot của bạn. Hãy đăng nhập để xem chi tiết nhé."
             ]
         },
         {
@@ -1840,9 +1840,9 @@
                 "Toa thuốc"
             ],
             "responses": [
-                "Bạn có thể xem chi tiết đơn thuốc đã được bác sĩ kê trong tài khoản HMS của mình sau khi đăng nhập, thường nằm trong phần Hồ sơ sức khỏe hoặc Lịch sử khám.",
-                "Đơn thuốc điện tử của bạn có sẵn trong hệ thống HMS. Vui lòng đăng nhập để xem và có thể tải về nếu cần.",
-                "Để xem lại đơn thuốc, hãy truy cập tài khoản HMS của bạn nhé. Thông tin chi tiết về liều lượng và cách dùng sẽ có ở đó."
+                "Bạn có thể xem chi tiết đơn thuốc đã được bác sĩ kê trong tài khoản Healthcare Chatbot của mình sau khi đăng nhập, thường nằm trong phần Hồ sơ sức khỏe hoặc Lịch sử khám.",
+                "Đơn thuốc điện tử của bạn có sẵn trong hệ thống Healthcare Chatbot. Vui lòng đăng nhập để xem và có thể tải về nếu cần.",
+                "Để xem lại đơn thuốc, hãy truy cập tài khoản Healthcare Chatbot của bạn nhé. Thông tin chi tiết về liều lượng và cách dùng sẽ có ở đó."
             ]
         },
         {
@@ -1864,8 +1864,8 @@
                 "Thông tin xét nghiệm"
             ],
             "responses": [
-                "Kết quả xét nghiệm thường sẽ có sau khoảng thời gian nhất định tùy loại xét nghiệm. Ngay khi có kết quả, chúng tôi sẽ cập nhật vào Hồ sơ sức khỏe điện tử của bạn trên hệ thống HMS và có thể gửi thông báo cho bạn. Vui lòng đăng nhập để kiểm tra.",
-                "Để xem kết quả xét nghiệm, bạn hãy đăng nhập vào tài khoản HMS. Kết quả sẽ hiển thị trong phần Hồ sơ sức khỏe hoặc mục Kết quả xét nghiệm.",
+                "Kết quả xét nghiệm thường sẽ có sau khoảng thời gian nhất định tùy loại xét nghiệm. Ngay khi có kết quả, chúng tôi sẽ cập nhật vào Hồ sơ sức khỏe điện tử của bạn trên hệ thống Healthcare Chatbot và có thể gửi thông báo cho bạn. Vui lòng đăng nhập để kiểm tra.",
+                "Để xem kết quả xét nghiệm, bạn hãy đăng nhập vào tài khoản Healthcare Chatbot. Kết quả sẽ hiển thị trong phần Hồ sơ sức khỏe hoặc mục Kết quả xét nghiệm.",
                 "Việc chuẩn bị trước khi xét nghiệm (ví dụ: nhịn ăn, uống nhiều nước) tùy thuộc vào loại xét nghiệm bác sĩ yêu cầu. Vui lòng kiểm tra lại chỉ định của bác sĩ hoặc liên hệ phòng xét nghiệm qua hotline 1900 1234 để được hướng dẫn chi tiết."
             ]
         },
@@ -1878,14 +1878,14 @@
                 "Mua thuốc theo đơn ở đâu?",
                 "Pharmacy location inside hospital",
                 "Pharmacy hours",
-                "Tìm nhà thuốc HMS",
+                "Tìm nhà thuốc Healthcare Chatbot",
                 "Quầy thuốc mở cửa đến mấy giờ?",
                 "Nhà thuốc bệnh viện",
                 "Mua thuốc ở đâu?",
                 "Giờ bán thuốc?"
             ],
             "responses": [
-                "Nhà thuốc của HMS nằm tại tầng 1, khu A, gần cổng chính. Giờ làm việc của nhà thuốc trùng với giờ làm việc của bệnh viện (7h-17h, T2-T7).",
+                "Nhà thuốc của Healthcare Chatbot nằm tại tầng 1, khu A, gần cổng chính. Giờ làm việc của nhà thuốc trùng với giờ làm việc của bệnh viện (7h-17h, T2-T7).",
                 "Bạn có thể đến nhà thuốc ở tầng 1, khu A để mua thuốc theo đơn hoặc các loại thuốc không kê đơn khác.",
                 "Nhà thuốc hoạt động từ 7:00 đến 17:00, thứ Hai đến thứ Bảy."
             ]
@@ -1934,9 +1934,9 @@
                 "Tổng tiền?"
             ],
             "responses": [
-                "Bạn có thể xem chi tiết hóa đơn viện phí và thực hiện thanh toán trực tuyến một cách tiện lợi thông qua tài khoản HMS của mình trên website hoặc ứng dụng di động. Hãy truy cập mục 'Thanh toán' hoặc 'Hóa đơn'.",
-                "Để xem và thanh toán hóa đơn, vui lòng đăng nhập vào hệ thống HMS và truy cập mục 'Thanh toán'. Chúng tôi hỗ trợ nhiều hình thức thanh toán.",
-                "Thông tin chi tiết về chi phí, hóa đơn và các phương thức thanh toán có sẵn trong tài khoản HMS của bạn."
+                "Bạn có thể xem chi tiết hóa đơn viện phí và thực hiện thanh toán trực tuyến một cách tiện lợi thông qua tài khoản Healthcare Chatbot của mình trên website hoặc ứng dụng di động. Hãy truy cập mục 'Thanh toán' hoặc 'Hóa đơn'.",
+                "Để xem và thanh toán hóa đơn, vui lòng đăng nhập vào hệ thống Healthcare Chatbot và truy cập mục 'Thanh toán'. Chúng tôi hỗ trợ nhiều hình thức thanh toán.",
+                "Thông tin chi tiết về chi phí, hóa đơn và các phương thức thanh toán có sẵn trong tài khoản Healthcare Chatbot của bạn."
             ]
         },
         {
@@ -1957,9 +1957,9 @@
                 "Thanh toán bằng thẻ?"
             ],
             "responses": [
-                "Chúng tôi chấp nhận nhiều hình thức thanh toán bao gồm: Tiền mặt tại quầy, Thẻ ngân hàng (ATM nội địa, Visa, Master Card), Chuyển khoản ngân hàng, và Thanh toán trực tuyến qua cổng thanh toán an toàn tích hợp trên website/ứng dụng HMS.",
-                "Bạn có thể thanh toán bằng tiền mặt, quẹt thẻ hoặc thanh toán online tiện lợi qua hệ thống HMS. Hiện tại chúng tôi chưa hỗ trợ trả góp trực tiếp hoặc thanh toán qua ví điện tử.",
-                "Các hình thức thanh toán được chấp nhận bao gồm: Tiền mặt, Thẻ ngân hàng, Chuyển khoản, Thanh toán online qua HMS."
+                "Chúng tôi chấp nhận nhiều hình thức thanh toán bao gồm: Tiền mặt tại quầy, Thẻ ngân hàng (ATM nội địa, Visa, Master Card), Chuyển khoản ngân hàng, và Thanh toán trực tuyến qua cổng thanh toán an toàn tích hợp trên website/ứng dụng Healthcare Chatbot.",
+                "Bạn có thể thanh toán bằng tiền mặt, quẹt thẻ hoặc thanh toán online tiện lợi qua hệ thống Healthcare Chatbot. Hiện tại chúng tôi chưa hỗ trợ trả góp trực tiếp hoặc thanh toán qua ví điện tử.",
+                "Các hình thức thanh toán được chấp nhận bao gồm: Tiền mặt, Thẻ ngân hàng, Chuyển khoản, Thanh toán online qua Healthcare Chatbot."
             ]
         },
         {
@@ -1970,7 +1970,7 @@
                 "Bệnh viện có chấp nhận bảo hiểm Prudential không?",
                 "Thủ tục bảo hiểm y tế?",
                 "Insurance information",
-                "Does HMS accept my insurance provider?",
+                "Does Healthcare Chatbot accept my insurance provider?",
                 "Bảo lãnh viện phí trực tiếp?",
                 "Chi trả bảo hiểm như nào?",
                 "Hỏi về bảo hiểm sức khỏe",
@@ -2024,7 +2024,7 @@
             "patterns": [
                 "Quên mật khẩu rồi",
                 "Làm sao lấy lại mật khẩu?",
-                "Reset password HMS",
+                "Reset password Healthcare Chatbot",
                 "Tôi không nhớ mật khẩu đăng nhập",
                 "Forgot my password",
                 "Đặt lại mật khẩu tài khoản",
@@ -2037,7 +2037,7 @@
                 "Không đăng nhập được"
             ],
             "responses": [
-                "Bạn có thể đặt lại mật khẩu bằng cách nhấp vào liên kết 'Quên mật khẩu?' trên màn hình đăng nhập của website hoặc ứng dụng HMS. Hệ thống sẽ gửi hướng dẫn các bước tiếp theo qua email hoặc số điện thoại bạn đã đăng ký với tài khoản.",
+                "Bạn có thể đặt lại mật khẩu bằng cách nhấp vào liên kết 'Quên mật khẩu?' trên màn hình đăng nhập của website hoặc ứng dụng Healthcare Chatbot. Hệ thống sẽ gửi hướng dẫn các bước tiếp theo qua email hoặc số điện thoại bạn đã đăng ký với tài khoản.",
                 "Vui lòng sử dụng chức năng 'Quên mật khẩu' tại trang đăng nhập để bắt đầu quá trình khôi phục mật khẩu của bạn."
             ]
         },
@@ -2057,8 +2057,8 @@
                 "Cập nhật hồ sơ"
             ],
             "responses": [
-                "Bạn có thể cập nhật thông tin cá nhân như số điện thoại, địa chỉ, email,... bằng cách đăng nhập vào tài khoản HMS của mình và truy cập mục 'Thông tin tài khoản' hoặc 'Hồ sơ cá nhân'.",
-                "Để chỉnh sửa thông tin, vui lòng đăng nhập vào hệ thống HMS và tìm đến phần quản lý tài khoản/hồ sơ của bạn."
+                "Bạn có thể cập nhật thông tin cá nhân như số điện thoại, địa chỉ, email,... bằng cách đăng nhập vào tài khoản Healthcare Chatbot của mình và truy cập mục 'Thông tin tài khoản' hoặc 'Hồ sơ cá nhân'.",
+                "Để chỉnh sửa thông tin, vui lòng đăng nhập vào hệ thống Healthcare Chatbot và tìm đến phần quản lý tài khoản/hồ sơ của bạn."
             ]
         },
         {
@@ -2187,9 +2187,9 @@
                 "Bot hay người?"
             ],
             "responses": [
-                "Đúng vậy, tôi là một trợ lý ảo AI (chatbot) được tạo ra để hỗ trợ bạn các thông tin về HMS.",
+                "Đúng vậy, tôi là một trợ lý ảo AI (chatbot) được tạo ra để hỗ trợ bạn các thông tin về Healthcare Chatbot.",
                 "Tôi là một chương trình máy tính, được thiết kế để cung cấp thông tin và hỗ trợ bạn một cách nhanh chóng.",
-                "Bạn đang tương tác với một chatbot AI của Hệ thống Quản lý Chăm sóc Sức khỏe HMS."
+                "Bạn đang tương tác với một chatbot AI của Hệ thống Quản lý Chăm sóc Sức khỏe Healthcare Chatbot."
             ]
         },
         {
@@ -2221,7 +2221,7 @@
                 "Xin lỗi, tôi chưa hiểu rõ câu hỏi của bạn lắm. Bạn có thể diễn đạt lại bằng cách khác hoặc hỏi về các chủ đề như đặt lịch, giờ làm việc, địa chỉ được không?",
                 "Tôi vẫn đang trong quá trình học hỏi và chưa thể xử lý yêu cầu này. Bạn có thể thử hỏi lại đơn giản hơn không?",
                 "Hmm, yêu cầu này có vẻ nằm ngoài khả năng hiện tại của tôi. Tôi có thể giúp bạn về thông tin dịch vụ hoặc đặt hẹn.",
-                "Rất tiếc, tôi chưa được lập trình để trả lời câu hỏi này. Bạn có thể cung cấp thêm chi tiết hoặc hỏi về vấn đề khác liên quan đến dịch vụ y tế của HMS không?",
+                "Rất tiếc, tôi chưa được lập trình để trả lời câu hỏi này. Bạn có thể cung cấp thêm chi tiết hoặc hỏi về vấn đề khác liên quan đến dịch vụ y tế của Healthcare Chatbot không?",
                 "Tôi không chắc lắm về điều đó. Bạn có muốn tôi giúp tìm thông tin về các chuyên khoa hoặc giờ làm việc không?"
             ]
         }

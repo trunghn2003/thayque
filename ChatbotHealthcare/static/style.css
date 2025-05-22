@@ -33,7 +33,7 @@ body {
 h1 {
     text-align: center;
     /* --- Màu tiêu đề --- */
-    color: #1a5f7a; /* Xanh đậm hơn */
+    color: #0866ff; /* Xanh đậm hơn */
     padding: 18px 15px; /* Tăng padding */
     margin: 0;
     /* --- Nền tiêu đề --- */
@@ -104,21 +104,37 @@ h1 {
 }
 
 .user-message {
-    /* --- Màu mới cho tin nhắn người dùng --- */
-    background-color: #1a7fa8; /* Xanh dương thanh lịch hơn */
+    background-color: #0866ff; /* Facebook Messenger blue */
     color: white;
     align-self: flex-end;
-    border-bottom-right-radius: 6px; /* Bo góc dưới phải ít hơn */
+    border-bottom-right-radius: 6px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
+/* Add new CSS for bot avatar and message alignment */
+.bot-message-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    max-width: 85%;
+}
+
+.bot-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    border: 1px solid #dce7eb;
+}
+
+/* Adjust bot message to work with avatar */
 .bot-message {
-    /* --- Màu mới cho tin nhắn bot --- */
-    background-color: #eef4f7; /* Xanh nhạt tương ứng */
-    color: #334e5e; /* Màu chữ tối hơn để dễ đọc */
-    align-self: flex-start;
-    border-bottom-left-radius: 6px; /* Bo góc dưới trái ít hơn */
-    border: 1px solid #dce7eb; /* Thêm viền nhẹ */
+    margin: 0;
+    background-color: #eef4f7;
+    color: #334e5e;
+    border-bottom-left-radius: 6px;
+    border: 1px solid #dce7eb;
+    flex-grow: 1;
 }
 
 
@@ -148,7 +164,7 @@ h1 {
 #sendButton {
     padding: 12px 20px; /* Tăng padding */
     /* --- Màu nút mới --- */
-    background-color: #1a7fa8; /* Đồng bộ với màu user message */
+    background-color: #0866ff; /* Đồng bộ với màu user message */
     color: white;
     border: none;
     border-radius: 25px; /* Đồng bộ bo tròn */
